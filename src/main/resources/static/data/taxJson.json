@@ -1,0 +1,1537 @@
+{
+  "module": "Tax Calculator",
+  "ulb": {
+    "roha": {
+      "construction": {
+        "rcc": "RCC Load bearing",
+        "roof": "Roof, Soil, Tin construction",
+        "so": "Slum & Other",
+        "stone": "Stone,Bricks,Cement Construction"
+      },
+      "usage": {
+        "res": "RESIDENTIAL",
+        "comm": "Commercial"
+      },
+      "unitrate": {
+        "rcc": {
+          "res": 335,
+          "comm": 429
+        },
+        "roof": {
+          "res": 179,
+          "comm": 268
+        },
+        "so": {
+          "res": 116,
+          "comm": 175
+        },
+        "stone": {
+          "res": 229,
+          "comm": 343
+        }
+      },
+      "road": {
+        "mr": "Main Road",
+        "ir": "Internal Road"
+      },
+      "roadmul": {
+        "mr": "0.1",
+        "ir": "1"
+      },
+      "subusage": {
+        "res": [
+          "Home",
+          "शाळा",
+          "अपार्टमेंट",
+          "सरकारी कार्यालय",
+          "झोपडी",
+          "निम सरकारी कार्यालय",
+          "सरकारी व निम सरकारी विश्रामगृह",
+          "वाचनालय",
+          "धार्मिक",
+          "Other",
+          "गोठा",
+          "रहिवासी+बिगर रहिवासी"
+        ],
+        "comm": [
+          "व्यवसाय",
+          "हॉस्पिटल",
+          "हॉटेल",
+          "पेट्रोल पंप",
+          "लॉज",
+          "थेअटर",
+          "मोबाईल टॉवर",
+          "Shop",
+          "Other",
+          "Hall",
+          "Institute",
+          "Hospital",
+          "दवखाना",
+          "Office",
+          "S.T.Depo",
+          "रहिवासी+बिगर रहिवासी"
+        ]
+      },
+      "tax": {
+        "res": {
+          "General Tax": 24,
+          "Tree Tax": 0.5,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          }
+        },
+        "comm": {
+          "General Tax": 24,
+          "Tree Tax": 0.5,
+          "Education Cess": {
+            "4": [
+              75,
+              149
+            ],
+            "6": [
+              150,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Employment Guaranty Cess": {
+            "1": [
+              75,
+              149
+            ],
+            "2": [
+              150,
+              299
+            ],
+            "3": [
+              300,
+              2999
+            ],
+            "1.5": [
+              3000,
+              5999
+            ],
+            "2.5": [
+              6000,
+              100000000000000000
+            ]
+          }
+        }
+      }
+    },
+    "khopoli": {
+      "construction": {
+        "bp": "आतुन बाहेरुन प्लास्टर पक्के घर / पत्र्याचे छप्पर",
+        "rcc": "आर. सी. सी स्लॅबसह राहाण्याचा दर",
+        "hu": "झोपडी",
+        "st": "दगड, माती, विटाचे कच्चे बांधकाम",
+        "lb": "लोड बोअरींग / सागवणी फ्रेम"
+      },
+      "usage": {
+        "res": "RESIDENTIAL",
+        "comm": "Commercial"
+      },
+      "unitrate": {
+        "bp": {
+          "res": 298,
+          "comm": 0
+        },
+        "rcc": {
+          "res": 356,
+          "comm": 0
+        },
+        "hu": {
+          "res": 147,
+          "comm": 0
+        },
+        "st": {
+          "res": 194,
+          "comm": 0
+        },
+        "lb": {
+          "res": 386,
+          "comm": 0
+        }
+      },
+      "road": {},
+      "roadmul": {},
+      "subusage": {
+        "res": [
+          "मोक्ळ्या जमीनी",
+          "शैक्षणिक",
+          "धर्मिक",
+          "ईतर"
+        ],
+        "comm": [
+          "लघू उद्योग",
+          "होटल",
+          "चित्रपटग्रुह",
+          "इस्पितळ",
+          "मोबाइल टॉवर",
+          "पेट्रोल पंप",
+          "दुकान",
+          "कारखाने",
+          "अन्य",
+          "गोडाउन",
+          "अन्य"
+        ]
+      },
+      "tax": {
+        "res": {
+          "General Tax": 25,
+          "Tree Tax": 1,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax": 1
+        },
+        "comm": {
+          "General Tax": 25,
+          "Tree Tax": 1,
+          "Education Cess": {
+            "4": [
+              75,
+              149
+            ],
+            "6": [
+              150,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Employment Guaranty Cess": {
+            "1": [
+              75,
+              149
+            ],
+            "2": [
+              300,
+              2999
+            ],
+            "3": [
+              6000,
+              100000000000000000
+            ],
+            "1.5": [
+              150,
+              299
+            ],
+            "2.5": [
+              3000,
+              5999
+            ]
+          },
+          "Fire Tax": 1
+        }
+      }
+    },
+    "pen": {
+      "construction": {
+        "rcc": "RCC"
+      },
+      "usage": {
+        "res": "RESIDENTIAL"
+      },
+      "unitrate": {
+        "rcc": {
+          "res": 561
+        }
+      },
+      "road": {
+        "mr": "Main Road",
+        "ir": "Internal Road"
+      },
+      "roadmul": {
+        "mr": "0.1",
+        "ir": "1"
+      },
+      "subusage": {
+        "res": [
+          "Other",
+          "Jhopadi",
+          "Baithe Ghar",
+          "Chawl",
+          "Building",
+          "Religious Places"
+        ]
+      },
+      "tax": {
+        "res": {
+          "General Tax": 22,
+          "Tree Tax": 0.5,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Special Education Tax": 3
+        }
+      }
+    },
+    "alibag": {},
+    "ambarnath": {
+      "construction": {
+        "dv": "Dhanda Vitabhatti (Type D)",
+        "lkk": "Lafata Kudache Kaule (Type C)",
+        "rl": "RCC/ Load Bearing (Type A)",
+        "vmc": "Vita mati Cement Patre (Type B)",
+        "ol": "Open Land (Type E)"
+      },
+      "usage": {
+        "res": "RESIDENTIAL",
+        "comm": "Commercial",
+        "lan": "Land"
+      },
+      "unitrate": {
+        "dv": {
+          "res": 60,
+          "comm": 120,
+          "lan": 0
+        },
+        "lkk": {
+          "res": 108,
+          "comm": 216,
+          "lan": 0
+        },
+        "rl": {
+          "res": 216,
+          "comm": 432,
+          "lan": 0
+        },
+        "vmc": {
+          "res": 168,
+          "comm": 324,
+          "lan": 0
+        },
+        "ol": {
+          "res": 0,
+          "comm": 0,
+          "lan": 60
+        }
+      },
+      "road": {},
+      "roadmul": {},
+      "subusage": {
+        "res": [
+          "Residential Building"
+        ],
+        "comm": [
+          "Businesses",
+          "Companies"
+        ],
+        "lan": []
+      },
+      "tax": {
+        "res": {
+          "General Tax": 28,
+          "Tree Tax": 1,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax ": 2
+        },
+        "comm": {
+          "General Tax": 28,
+          "Tree Tax": 1,
+          "Education Cess": 12,
+          "Employment Guaranty Cess": 3,
+          "Fire Tax": 2
+        },
+        "lan": {
+          "General Tax": 28,
+          "Tree Tax": 1
+        }
+      }
+    },
+    "sinner": {
+      "construction": {
+        "hlf": "अर्धे पक्के बांधकाम",
+        "rcc": "आ.र.सी.सी",
+        "orcc": "इतर पक्के बांधकाम",
+        "kb": "कच्चे बांधकाम"
+      },
+      "usage": {
+        "res": "RESIDENTIAL",
+        "comm": "Commercial"
+      },
+      "unitrate": {
+        "hlf": {
+          "res": 628,
+          "comm": 1122
+        },
+        "rcc": {
+          "res": 629,
+          "comm": 1156
+        },
+        "orcc": {
+          "res": 627,
+          "comm": 1190
+        },
+        "kb": {
+          "res": 628,
+          "comm": 1060
+        }
+      },
+      "road": {},
+      "roadmul": {},
+      "subusage": {},
+      "tax": {
+        "res": {
+          "General Tax": 23,
+          "Tree Tax": 0.25,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax ": 2,
+          "Special Conservancy Tax": 100,
+          "S. W. M. Service Charge": 300
+        },
+        "comm": {
+          "General Tax": 23,
+          "Tree Tax": 0.25,
+          "Education Cess": 12,
+          "Fire Tax": 2,
+          "Special Conservancy Tax": 300,
+          "S. W. M. Service Charge": 100,
+          "Employment Guaranty Cess": {
+            "1": [
+              75,
+              149
+            ],
+            "2": [
+              300,
+              2999
+            ],
+            "3": [
+              6000,
+              100000000000000000
+            ],
+            "1.5": [
+              150,
+              299
+            ],
+            "2.5": [
+              3000,
+              5999
+            ]
+          }
+        }
+      }
+    },
+    "murud": {
+      "construction": {
+        "rl": "Row Labels",
+        "rfs": "RCC Frame structure",
+        "rlb": "RCC Load bearing",
+        "swtp": "Soil, Wood, Tin Partition/Slum",
+        "sbst": "Stones, Bricks, Soil, Tin construction"
+      },
+      "usage": {
+        "res": "RESIDENTIAL",
+        "nonres": "NON-RESIDENTIAL"
+      },
+      "unitrate": {
+        "rl": {
+          "res": 132,
+          "nonres": 33
+        },
+        "rfs": {
+          "res": 132,
+          "nonres": 33
+        },
+        "rbl": {
+          "res": 132,
+          "nonres": 33
+        },
+        "swtp": {
+          "res": 132,
+          "nonres": 33
+        },
+        "sbst": {
+          "res": 132,
+          "nonres": 33
+        }
+      },
+      "road": {},
+      "roadmul": {},
+      "subusage": {},
+      "tax": {
+        "res": {
+          "General Tax": 25,
+          "Tree Tax": 0.5,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax ": 2
+        },
+        "nonres": {
+          "General Tax": 25,
+          "Tree Tax": 0.5,
+          "Education Cess": {
+            "4": [
+              75,
+              149
+            ],
+            "6": [
+              150,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax": 2,
+          "Employment Guaranty Cess": {
+            "1": [
+              75,
+              149
+            ],
+            "2": [
+              300,
+              2999
+            ],
+            "3": [
+              6000,
+              100000000000000000
+            ],
+            "1.5": [
+              150,
+              299
+            ],
+            "2.5": [
+              3000,
+              5999
+            ]
+          }
+        }
+      }
+    },
+    "khappa": {
+      "construction": {
+        "a": "A.कॉलमचे घर, विटा, सिमेंट जुडाई, सिमेंट प्लास्टर, सिमेंट कॉंक्रीट, स्लॅप व प्लोरींग स्टाईल",
+        "b": "B.विटा, सिमेंट जुडाई, प्लास्टर, कॉंक्रीट, प्लोरींग फरशी",
+        "c": "C.विटा, चुना सिमेंट जुडाई, प्लास्टर, स्लॅब फरशी, मंगलेरू कवेलू",
+        "d": "D.विटा, माती, कवेलू, फरशी/माती",
+        "e": "E.झोपडपट्टी/कुडाचे झोपडे, गाय कोठा",
+        "f": "F.भुखंड क्षेत्र/मोकळी जागा"
+      },
+      "usage": {
+        "res": "RESIDENTIAL",
+        "nonres": "NON-RESIDENTIAL",
+        "comm": "Commercial",
+        "gp": "Government Property",
+        "ol": "Open Land"
+      },
+      "unitrate": {
+        "a": {
+          "res": 34,
+          "nonres": 100,
+          "comm": 35,
+          "gp": 2,
+          "ol": 0
+        },
+        "b": {
+          "res": 34,
+          "nonres": 80,
+          "comm": 34,
+          "gp": 2,
+          "ol": 0
+        },
+        "c": {
+          "res": 34,
+          "nonres": 80,
+          "comm": 1,
+          "gp": 2,
+          "ol": 0
+        },
+        "d": {
+          "res": 34,
+          "nonres": 41,
+          "comm": 0,
+          "gp": 2,
+          "ol": 0
+        },
+        "e": {
+          "res": 34,
+          "nonres": 0,
+          "comm": 0,
+          "gp": 0,
+          "ol": 0
+        },
+        "f": {
+          "res": 0,
+          "nonres": 0,
+          "comm": 0,
+          "gp": 0,
+          "ol": 34
+        }
+      },
+      "road": {},
+      "roadmul": {},
+      "subusage": {},
+      "tax": {
+        "res": {
+          "General Tax": 24,
+          "Tree Tax": 1,
+          "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax ": 1,
+          "Cleanliness Tax": 10
+        },
+        "nonres": {
+          "General Tax": 24,
+          "Tree Tax": 1,
+          "Education Cess": {
+            "4": [
+              75,
+              149
+            ],
+            "6": [
+              150,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Fire Tax": 1,
+          "Cleanliness Tax": 10,
+          "Employment Guaranty Cess": {
+            "1": [
+              75,
+              149
+            ],
+            "2": [
+              300,
+              2999
+            ],
+            "3": [
+              6000,
+              100000000000000000
+            ],
+            "1.5": [
+              150,
+              299
+            ],
+            "2.5": [
+              3000,
+              5999
+            ]
+          }
+        }
+      }
+    },
+    "igatpuri":{
+    "construction": {
+        "a": "A-R.C.C,Slab Buildiing,Cement,Chuna,Tiles,Farashi",
+        "b": "B-Nim pakke Bandhkam,lodbaring slabsah ciment wit bandhkam Farashi Tiles",
+        "c": "C-kacche Bandhkam,wit mati bandhkam Ciment Plaster ptryache chat pahrashi tailes"
+    },
+    "usage": {
+        "edu": "Educational",
+        "ind": "INDUSTRIAL",
+        "nonres": "NON RESIDETIAL",
+        "off": "Office",
+        "oth": "Other",
+        "rel": "Religious",
+        "res": "RESIDETIAL"
+    },
+    "unitrate": {
+        "a": {
+            "edu": 78,
+            "ind": 36,
+            "nonres": 135,
+            "off": 18,
+            "oth": 18,
+            "rel": 108,
+            "res": 135
+        },
+        "b": {
+            "edu": 81,
+            "ind": 36,
+            "nonres": 135,
+            "off": 18,
+            "oth": 9,
+            "rel": 108,
+            "res": 135
+        },
+        "c": {
+            "edu": 0,
+            "ind": 0,
+            "nonres": 5,
+            "off": 0,
+            "oth": 0,
+            "rel": 0,
+            "res": 5
+        }
+    },
+    "road": {},
+    "roadmul": {},
+    "subusage": {},
+    "tax": {
+        "res": {
+            "General Tax": 25,
+            "Tree Tax": 1,
+            "Fire Tax": 2,
+            "Special Conservancy Tax": 50,
+            "Education Cess": {
+                "2": [
+                    75,
+                    149
+                ],
+                "3": [
+                    150,
+                    299
+                ],
+                "4": [
+                    300,
+                    2999
+                ],
+                "5": [
+                    3000,
+                    5999
+                ],
+                "6": [
+                    6000,
+                    100000000000000000
+                ]
+            }
+        },
+        "nonres": {
+            "General Tax": 25,
+            "Tree Tax": 1,
+            "Fire Tax": 2,
+            "Special Conservancy Tax": 50,
+            "Education Cess": {
+                "2": [
+                    75,
+                    149
+                ],
+                "3": [
+                    150,
+                    299
+                ],
+                "4": [
+                    300,
+                    2999
+                ],
+                "5": [
+                    3000,
+                    5999
+                ],
+                "6": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+            "Employment Guaranty Cess": {
+                "1": [
+                    75,
+                    149
+                ],
+                "1.5": [
+                    150,
+                    299
+                ],
+                "2": [
+                    300,
+                    2999
+                ],
+                "2.5": [
+                    3000,
+                    5999
+                ],
+                "3": [
+                    6000,
+                    100000000000000000
+                ]
+            }
+        }
+    }
+} ,
+    "kagal":{
+    "construction": {
+        "a": "Farm House",
+        "b": "LoadBearing",
+        "c": "Open Land",
+        "d": "R.C.C with Plaster",
+        "e": "R.C.C without Plaster",
+        "f": "Stone,Block, Manglore Roof With Plaster",
+        "g": "Stone,Block, Manglore Roof Without Plaster",
+        "h": "Temp Slumtype Construction"
+    },
+    "usage": {
+        "fm": "Farm House",
+        "ind": "INDUSTRIAL",
+        "nonres": "NON RESIDETIAL",
+        "ol": "OPEN LAND",  
+        "res": "RESIDETIAL"
+    },
+    "unitrate": {
+        "a": {
+            "fm": 60,
+            "ind": 0,
+            "nonres": 0,
+            "ol": 0,  
+            "res": 0
+        },
+        "b": {
+           "fm": 0,
+            "ind": 131,
+            "nonres": 1093,
+            "ol": 2,  
+            "res": 546
+        },
+        "c": {
+           "fm": 0,
+            "ind": 10,
+            "nonres": 173,
+            "ol": 152,  
+            "res": 84
+        },
+        "d": {
+           "fm": 0,
+            "ind": 130,
+            "nonres": 1164,
+            "ol": 2,  
+            "res": 591
+        },
+        "e": {
+           "fm": 0,
+            "ind": 131,
+            "nonres": 1170,
+            "ol": 0,  
+            "res": 560
+        },
+        "f": {
+           "fm": 0,
+            "ind": 130,
+            "nonres": 1106,
+            "ol": 0,  
+            "res": 518
+        },
+        "g": {
+           "fm": 0,
+            "ind": 129,
+            "nonres": 1109,
+            "ol": 0,  
+            "res": 500
+        },
+        "h": {
+           "fm": 0,
+            "ind": 128,
+            "nonres": 1147,
+            "ol":3,  
+            "res": 503
+        }
+    },
+    "road": {},
+    "roadmul": {},
+    "subusage": {},
+    "tax": {
+        "res": {
+            "General Tax": 26,
+            "Tree Tax": 0.5,
+            "Fire Tax": 2,
+            "Ghankhachara Tax": 2,
+            "Education Cess": {
+                "2": [
+                    75,
+                    149
+                ],
+                "3": [
+                    150,
+                    299
+                ],
+                "4": [
+                    300,
+                    2999
+                ],
+                "5": [
+                    3000,
+                    5999
+                ],
+                "6": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+            "Environmental Tax": 0.5,
+            "Special Sanitary Tax": 50
+        },
+        "nonres": {
+            "General Tax": 26,
+            "Tree Tax": 0.5,
+            "Fire Tax": 2,
+            "Ghankhachara Tax": 2,
+            "Education Cess": {
+                "4": [
+                    75,
+                    149
+                ],
+                "6": [
+                    150,
+                    299
+                ],
+                "8": [
+                    300,
+                    2999
+                ],
+                "10": [
+                    3000,
+                    5999
+                ],
+                "12": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+            "Employment Guaranty Cess": {
+                "1": [
+                    75,
+                    149
+                ],
+                "1.5": [
+                    150,
+                    299
+                ],
+                "2": [
+                    300,
+                    2999
+                ],
+                "2.5": [
+                    3000,
+                    5999
+                ],
+                "3": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+             "Environmental Tax": 0.5,
+             "Special Sanitary Tax": 50,
+             "Service tax": 15
+        },
+        "ind": {
+           "General Tax": 26,
+           "Tree Tax": 0.5,
+           "Fire Tax": 2,
+           "Ghankhachara Tax": 2,
+           "Education Cess": {
+                "4": [
+                    75,
+                    149
+                ],
+                "6": [
+                    150,
+                    299
+                ],
+                "8": [
+                    300,
+                    2999
+                ],
+                "10": [
+                    3000,
+                    5999
+                ],
+                "12": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+            "Employment Guaranty Cess": {
+                "1": [
+                    75,
+                    149
+                ],
+                "1.5": [
+                    150,
+                    299
+                ],
+                "2": [
+                    300,
+                    2999
+                ],
+                "2.5": [
+                    3000,
+                    5999
+                ],
+                "3": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+             "Environmental Tax": 0.5,
+             "Special Sanitary Tax": 50
+        },
+        "ol": {
+           "General Tax": 26,
+           "Tree Tax": 0.5,
+           "Fire Tax": 2,
+           "Ghankhachara Tax": 2,
+           "Education Cess": {
+                "2": [
+                    75,
+                    149
+                ],
+                "3": [
+                    150,
+                    299
+                ],
+                "4": [
+                    300,
+                    2999
+                ],
+                "5": [
+                    3000,
+                    5999
+                ],
+                "6": [
+                    6000,
+                    100000000000000000
+                ]
+            },
+            "Environmental Tax": 0.5
+        }
+    }
+},
+    "vadgoan":{
+    "construction": {
+        "a": "Load Bearing",
+        "b": "Open Land",
+        "c": "Open Land Comm",
+        "d": "Reinforcement Cement Concrete",
+        "e": "Stones, Bricks, Soil, Tin Rough construction",
+        "f": "Stones, Bricks, Tin permanent construction",
+        "g": "Wood construction, Tin Partition/Slum"
+    },
+    "usage": {
+        "comm": "Commercial",
+        "ind": "INDUSTRIAL",
+        "ol": "OPEN LAND",
+        "olc": "OPEN LAND COM",  
+        "ofl": "Out Of Land",
+        "res": "RESEDENTIAL"
+    },
+    "unitrate": {
+       "a": {
+                "comm": 104,
+                "ind": 12 ,
+                "ol": 0,
+                "olc": 0,
+                "ofl": 0,
+                "res": 18
+        },
+        "b": {
+                "comm": 15,
+                "ind": 2 ,
+                "ol": 9,
+                "olc": 1,
+                "ofl": 1,
+                "res": 3
+        },
+        "c": {
+                "comm": 0,
+                "ind": 0 ,
+                "ol": 0,
+                "olc": 8,
+                "ofl": 0,
+                "res": 0
+        },
+        "d": {
+                "comm": 105,
+                "ind": 12 ,
+                "ol": 0,
+                "olc": 0,
+                "ofl": 0,
+                "res": 19
+        },
+        "e": {
+                "comm": 104,
+                "ind": 12 ,
+                "ol": 0,
+                "olc": 0,
+                "ofl": 0,
+                "res": 24
+        },
+        "f": {
+                "comm": 106,
+                "ind": 12,
+                "ol": 0,
+                "olc": 0,
+                "ofl": 0,
+                "res": 24
+        },
+        "g": {
+                "comm": 98,
+                "ind": 8 ,
+                "ol": 0,
+                "olc": 0,
+                "ofl": 0,
+                "res": 16
+        }
+    },
+    "road": {},
+    "roadmul": {},
+    "subusage": {},
+    "tax": {
+        "ind": {
+            "General Tax": 25,
+            "Tree Tax": 1,
+            "Fire Tax": 2,
+            "Solid Waste management Tax": 60,
+            "Special Conservancy Tax": 100,
+            "Education Cess": {
+            "4": [
+              75,
+              149
+            ],
+            "6": [
+              150,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          }
+        },
+        "ol": {
+            "General Tax": 25,
+            "Tree Tax": 1,
+            "Fire Tax": 2,
+            "Solid Waste management Tax": 60,
+            "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+              100000000000000000
+            ]
+          }
+        },
+        "olc": {
+           "General Tax": 25,
+           "Tree Tax": 1,
+           "Fire Tax": 2,
+           "Solid Waste management Tax": 60,
+           "Education Cess": {
+            "4": [
+              75,
+              149
+            ],
+            "6": [
+              150,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          }
+        },
+        "res": {
+           "General Tax": 25,
+           "Tree Tax": 1,
+           "Fire Tax": 2,
+           "Solid Waste management Tax": 60,
+           "Special Conservancy Tax": 100,
+           "Education Cess": {
+            "2": [
+              75,
+              149
+            ],
+            "3": [
+              150,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+             100000000000000000
+            ]
+          }
+        }
+      }
+   },
+    "ichalkarnji":{
+    "construction": {
+        "a": "A – Pahila pratiche bandhkaam",
+        "b": "B – Duyyam pratiche bandhkaam",
+        "c": "C– Sadharan Duyyam pratiche bandhkaam",
+        "d": "D – Sadharan pratiche bandhkaam",
+        "e": "E – Nikrsht pratiche bandhkaam",
+        "f": "F - Temporary Construction",
+        "g": "G - Open Land"
+    },
+    "usage": {
+        "comm": "COMMERCIAL",
+        "ind": "INDUSTRIAL",
+        "olg": "OPEN LAND GUNTHEWARI/N.A.",
+        "olr": "OPEN LAND REGULAR",          
+        "res": "RESEDENTIAL"
+    },
+    "unitrate": {
+       "a": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 25,
+                "olr": 25,
+                "res": 125
+        },
+        "b": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 25,
+                "olr": 25,
+                "res": 125
+        },
+        "c": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 25,
+                "olr": 25,
+                "res": 125
+        },
+        "d": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 25,
+                "olr": 25,
+                "res": 125
+        },
+        "e": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 25,
+                "olr": 25,
+                "res": 125
+        },
+        "f": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 25,
+                "olr": 25,
+                "res": 125
+        },
+        "g": {
+                "comm": 125,
+                "ind": 151 ,
+                "olg": 125,
+                "olr": 25,
+                "res": 125
+        }
+    },
+    "road": {},
+    "roadmul": {},
+    "subusage": {},
+    "tax": {
+        "ind": {
+            "General Tax": 28,
+            "Tree Tax": 1,
+            "Fire Tax": 1,
+            "Drainage tax": 5,
+            "Special Education tax": 2.8,
+            "Special Conservancy Tax": 30,
+            "Solid waste Management tax": 240,
+            "Education Cess": {
+            "4": [
+              0,
+              150
+            ],
+            "6": [
+              151,
+              299
+            ],
+            "8": [
+              300,
+              2999
+            ],
+            "10": [
+              3000,
+              5999
+            ],
+            "12": [
+              6000,
+              100000000000000000
+            ]
+          },
+          "Employment Guaranty Cess": {
+            "1": [
+              0,
+              150
+            ],
+            "1.5": [
+              151,
+              299
+            ],
+            "2": [
+              300,
+              2999
+            ],
+            "2.5": [
+              3000,
+              5999
+            ],
+            "3": [
+              6000,
+              100000000000000000
+            ]
+          }
+        },
+        "olg": {
+            "General Tax": 28,
+            "Tree Tax": 1,
+            "Fire Tax": 1,
+            "Special Education tax": 2.8
+        },
+        "olr": {
+           "General Tax": 28,
+           "Tree Tax": 1,
+           "Fire Tax": 1,
+           "Special Education tax": 2.8
+        },
+        "res": {
+           "General Tax": 28,
+           "Tree Tax": 1,
+           "Fire Tax": 1,
+           "Drainage tax": 5,
+           "Special Education tax": 2.8,
+           "Special Conservancy Tax": 30,
+           "Solid waste Management tax": 240,
+           "Education Cess": {
+            "2": [
+              0,
+              150
+            ],
+            "3": [
+              151,
+              299
+            ],
+            "4": [
+              300,
+              2999
+            ],
+            "5": [
+              3000,
+              5999
+            ],
+            "6": [
+              6000,
+             100000000000000000
+            ]
+          }
+        }
+    }
+}
+ }
+}

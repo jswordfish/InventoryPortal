@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--  NOT USED  -->
+<!-- <!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-5.0.dtd"> -->
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	
+	<!-- General properties -->
+	<property name="hibernate.transaction.auto_close_session">true</property>
+	<property name="hibernate.connection.autocommit">false</property>
+	<property name="hibernate.current_session_context_class">thread</property>
+	
+	
+	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+	<property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/Gov</property>
+	<property name="hibernate.connection.username">postgres</property>
+	<property name="hibernate.connection.password"></property>
+	<property name="hibernate.connection.pool_size">10</property>
+	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialectt</property>
+	<property name="hibernate.current_session_context_class">thread</property>
+	
+	<!-- Use the C3P0 connection pool provider -->
+	<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+	<property name="hibernate.c3p0.min_size">5</property>
+	<property name="hibernate.c3p0.max_size">20</property>
+	<property name="hibernate.c3p0.timeout">40</property>
+	<property name="hibernate.c3p0.max_statements">0</property>
+	<property name="hibernate.c3p0.idle_test_period">3000</property>
+	
+	<!-- Show SQL on stdout -->
+	<property name="hibernate.show_sql">false</property>
+	<property name="hibernate.format_sql">false</property>
+	
+	  <!-- <property name="packagesToScan">
+            <list>
+                <value>com.innowave.mahaulb.common</value>
+                 <value>com.innowave.mahaulb.repository.treecensus</value>
+                  <value>com.innowave.mahaulb.socialwelfare</value>
+                   <value>com.innowave.mahaulb.repository.property</value>
+            </list>
+        </property> -->
+	
+	</session-factory>
+</hibernate-configuration>

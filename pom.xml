@@ -1,0 +1,436 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.innowave.mahaulb.web</groupId>
+  <artifactId>MahaULBWebPortal</artifactId>
+  <version>0.0.1-RELEASE</version>
+  <packaging>war</packaging>
+  <name>Maha ULB Web Project</name>
+  
+  <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.3.RELEASE</version>
+    </parent>
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		 <maven.compiler.source>1.8</maven.compiler.source>
+    	<maven.compiler.target>1.8</maven.compiler.target>
+    	 <tomcat.version>8.0.27</tomcat.version>
+	 <!-- 	<start-class>com.innowave.egov.app.</start-class>   -->
+	</properties>
+	
+	<dependencies>
+			<!--  automatic restart of the server for any change in code.  -->
+			 <!--  <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <optional>true</optional>
+           </dependency>   -->
+           
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!--  <exclusions>
+		    <exclusion>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-logging</artifactId>
+		    </exclusion>
+		  </exclusions>   -->
+			<scope>provided</scope>
+			
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+      
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+      <!--   <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency> -->
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+		<!--  <exclusions> -->
+			<!--  <exclusion>
+	            <groupId>org.hibernate</groupId>
+	            <artifactId>hibernate-entitymanager</artifactId>
+	        </exclusion> -->
+               <!-- <exclusion>
+                       <groupId>org.apache.tomcat</groupId>
+                       <artifactId>tomcat-jdbc</artifactId>
+                </exclusion> -->
+         <!--  </exclusions> -->
+	  </dependency>
+	   <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-mail</artifactId>
+	</dependency> 
+
+	 <dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>4.2.3.RELEASE</version>
+	  </dependency>
+	  <dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>4.2.3.RELEASE</version>
+	  </dependency>
+		  
+	  <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	   </dependency>
+	   
+	     <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>4.3.10.RELEASE</version>
+		</dependency>
+		
+		<!-- End Spring  -->
+	  
+	  
+	<!-- Need this for json to/from object -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			</dependency> 
+		
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.1.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>com.yahoo.platform.yui</groupId>
+		    <artifactId>yuicompressor</artifactId>
+		    <version>2.4.8</version>
+		</dependency>
+        
+       	<!-- https://mvnrepository.com/artifact/com.googlecode.htmlcompressor/htmlcompressor -->
+		<dependency>
+		    <groupId>com.googlecode.htmlcompressor</groupId>
+		    <artifactId>htmlcompressor</artifactId>
+		    <version>1.5.2</version>
+		</dependency>
+       
+       <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		  	<version>5.2.10.Final</version> 
+		</dependency>
+		<!-- Hibernate Jcache -->
+		    <dependency>
+		      <groupId>org.hibernate</groupId>
+		      <artifactId>hibernate-jcache</artifactId>
+		      <version>5.2.10.Final</version>
+		    </dependency>
+		    
+		  <!-- Ehcache 3.x -->
+		    <dependency>
+		      <groupId>org.ehcache</groupId>
+		      <artifactId>ehcache</artifactId>
+		      <version>3.3.1</version>
+		    </dependency>
+   
+	   <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>1.0.0.GA</version>
+		</dependency> 
+	   
+	     <dependency>
+	      <groupId>org.hibernate</groupId>
+	      <artifactId>hibernate-validator</artifactId>
+	     <version>4.3.1.Final</version>
+	    </dependency>  
+       <!--  <dependency>
+	      <groupId>org.hibernate</groupId>
+	      <artifactId>hibernate-search</artifactId>
+	      <version>5.7.2.Final</version>
+	    </dependency> -->
+    
+    	 <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+         	<version>5.0.1.Final</version>
+        </dependency> 
+        <!-- <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
+        </dependency> -->
+       <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.2.7.Final</version>
+		</dependency>  
+        <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.1</version>
+		</dependency> 
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+	    </dependency>
+      
+     
+		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<!-- 	<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>5.0.0.RELEASE</version>
+		</dependency> -->
+		
+		
+		<!-- <dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.0.4</version>
+		</dependency> -->
+		
+		
+		
+		
+	<!-- ################## MAHA ULB Project ##################### -->	
+	
+	<!-- ################## MAHA ULB Common Project ##################### -->	
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>CommonRepository</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>CommonService</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		 <dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>CommonWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>MahaULBUtils</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+	<!-- ################## CLOSE MAHA ULB Common Project ##################### -->	
+	
+	<!-- ################## MAHA ULB TreeCensus Project ##################### -->	
+	  	
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>TreeCensusRepository</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>TreeCensusService</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>TreeCensusWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		
+	
+	<!-- ################## CLOSE MAHA ULB TreeCensus Project ##################### -->	
+	
+	<!-- ################## CLOSE MAHA ULB SocialWelfare Project ##################### -->	
+		<!-- <dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>SocialWelfareRepository</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency> 
+		
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>SocialWelfareWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency> 
+		 -->
+		
+	<!-- ################## CLOSE MAHA ULB SocialWelfare Project ##################### -->	
+		
+	<!-- ##################  MAHA ULB Property Project ##################### -->		
+	 
+		<!-- <dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>PropertyRepository</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>PropertyService</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>PropertyWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency> -->
+		
+	<!-- ################## CLOSE MAHA ULB Property Project ##################### -->		
+		
+	<!-- ##################  MAHA ULB Citizen  Project ##################### -->
+		<!-- <dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>CitizenRepository</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>CitizenService</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>CitizenWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency> -->
+	
+	<!-- ##################  MAHA ULB Citizen Project ##################### -->
+	
+	<!-- ##################  MAHA ULB Water Project ##################### -->
+		<!-- <dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>WaterRepository</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>WaterService</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>WaterWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency>  -->
+	
+	<!-- ##################  MAHA ULB Water Project ##################### -->
+	
+	<!-- ##################  MAHA ULB TradeLicense Project ##################### -->
+	<!-- <dependency>
+	    <groupId>com.innowave</groupId>
+	    <artifactId>TradeLicenseRepository</artifactId>
+	    <version>0.0.1-RELEASE</version>
+  	</dependency>
+		<dependency>
+		   <groupId>com.innowave</groupId>
+  <artifactId>TradeLicenseService</artifactId>
+  <version>0.0.1-RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.innowave</groupId>
+		    <artifactId>TradeLicenseWeb</artifactId>
+		    <version>0.0.1-RELEASE</version>
+		</dependency> -->
+		
+	<!-- ##################  MAHA ULB TradeLicense Project ##################### -->
+	
+	
+	
+	<!--  ############## SMS ################3 -->
+	
+	<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxrpc-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>jsr311-api</artifactId>
+			<version>1.1.1</version>
+		 </dependency>
+ 			 <!-- <dependency>
+		     <groupId>MOLSMS</groupId>
+		     <artifactId>MOLSMS</artifactId>
+		      <systemPath>${basedir}/src/lib/MOLSMS-1.3.jar</systemPath>
+		 <scope>system</scope>
+		 <version>1.1</version>
+		   </dependency>  --> 
+		
+	<!--  ############### END SMS ############### -->
+	
+		</dependencies>
+		<build>
+        <plugins>
+        	<!--  <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.7.0</version>
+		        <configuration>
+		          <source>1.8</source>
+		          <target>1.8</target>
+		        </configuration>
+		      </plugin> -->
+        	 <!--  <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+             
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin> -->
+            
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
