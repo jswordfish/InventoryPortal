@@ -15,6 +15,9 @@
     <mvc:annotation-driven />
     <context:component-scan base-package="
     									  com.innowave.mahaulb.mahaweb,
+    									  com.innowave.mahaulb.web.inventory.controller,
+    									  com.innowave.mahaulb.service.inventory,
+    									   com.innowave.mahaulb.repository.inventory,
     									  com.innowave.mahaulb.web.common.controller,
     									  com.innowave.mahaulb.common.service,	
     									  com.innowave.mahaulb.common.repository,

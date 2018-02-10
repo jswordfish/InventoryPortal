@@ -277,6 +277,11 @@
 		    <version>0.0.1-RELEASE</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.innowave</groupId>
+			<artifactId>InventoryWeb</artifactId>
+  			<version>0.0.1-RELEASE</version>
+		</dependency>
 	
 	<!-- ################## CLOSE MAHA ULB TreeCensus Project ##################### -->	
 	

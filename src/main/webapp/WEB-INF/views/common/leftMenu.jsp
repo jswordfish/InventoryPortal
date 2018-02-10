@@ -105,8 +105,8 @@
                    	  	<ul class="nav child_menu">
                    	  	  <li><a href="<c:url value="/inventory/addmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.add" /></a></li>
 	                      <li><a href="<c:url value="/inventory/editmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.edit" /></a></li>
-	                      <li><a href="<c:url value="/inventory/searchmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.search" /></a></li>
-	                      <li><a href="<c:url value="/inventory/listmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.list" /></a></li>
+	                      <li><a href="<c:url value="/inventory/fetchmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.search" /></a></li>
+	                      <li><a href="<c:url value="/inventory/viewmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.list" /></a></li>
                    	  	</ul>
                    	  </li>
                     </ul>
