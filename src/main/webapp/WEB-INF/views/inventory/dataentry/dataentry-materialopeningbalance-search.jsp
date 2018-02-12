@@ -5,6 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<%@page import="com.innowave.mahaulb.web.inventory.controller.forms.*" %>
 <compress:html >
 <html>
 
@@ -16,9 +17,13 @@
 <jsp:include page="../../common/header.jsp" />
 
 </head>
+<%
+
+System.out.println("balances is "+((InventoryMaterialOpBalForm)request.getSession().getAttribute("balForm")).getBalances());
+%>
 <body class="nav-md">
 
-
+ <form:form id="balForm" action="fetchopeningbalances" method="GET" commandName="balForm">
 	<div class="container body">
 		<div class="main_container">
 			<jsp:include page="../../common/leftMenu.jsp" />
@@ -51,29 +56,35 @@
 									<br />
 									<div class="row">
 							            <div class="form-group">
-										  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.dataentry.materialopeningblnc.materialname" />:<span class="required">*</span>	</label>
+							             <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.dataentry.materialopeningblnc.storename" />:<span class="required">*</span>	</label>
 										  <div class="col-md-4 col-sm-12 col-xs-12">
-											  <select class="form-control">
-											 	<option>Select</option>
-											 </select>
+											  <form:select id="stores" path="storeId" cssClass="form-control" > 
+											      <form:option value="" label="--Please Select"/>
+											      <form:options items="${stores}" itemValue="storeId" itemLabel="storeName"/>
+											 </form:select>
 										  </div>
 										  
-										  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.dataentry.materialopeningblnc.storename" />:<span class="required">*</span>	</label>
+										   <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.dataentry.materialopeningblnc.materialname" />:<span class="required">*</span>	</label>
 										  <div class="col-md-4 col-sm-12 col-xs-12">
-											 <select class="form-control">
-											 	<option>Select</option>
-											 </select>
+											  <form:select id="materials" path="materialId" cssClass="form-control"> 
+											      <form:option value="" label="--Please Select"/>
+											      <form:options items="${materials}" itemValue="materialId" itemLabel="materialName"/>
+											 </form:select>
 										  </div>
 										</div>
+							            
+							            
+										 
+										  
+										 
 									</div>
 										
 									<div class="row">
 
 										<div class="form-group ">
 											<div class="actionBar">
-												<button class="btn btn-deanger" type="reset"><spring:message code="label.btn.reset" /></button>
-												<button type="submit" id="submitBtn"
-													class="btn btn-success"><spring:message code="label.btn.search" /></button>
+												<button class="btn btn-deanger" type="submit"  name="resetmaterialmapping"><spring:message code="label.btn.reset" /></button>
+												<button type="submit" id="submitBtn" class="btn btn-success" name="fetchopeningbalances"><spring:message code="label.btn.search" /></button>
 											</div>
 										</div>
 									</div>
@@ -91,7 +102,7 @@
 									</h2>
 									<ul class="nav navbar-right panel_toolbox">
 				                     <li>
-				                     	<a href="<c:url value="/landestate/dataentry/addmaterialopening" />"><button type="button" id="addBtn" class="btn"><spring:message code="label.btn.add" /></button></a>
+				                     	<button type="submit" id="addBtn" class="btn" name="addopeningbalance"><spring:message code="label.btn.add" /></button>
 				                     </li>	  
 				                    </ul>
 									<div class="clearfix"></div>
@@ -117,18 +128,22 @@
 						                      	</tr>
 						                      </thead>
 						                      <tbody>
+						                       <c:forEach items="${balances}" var="bal" >   
 						                      	<tr>
-						                      		<td>1</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
+						                      		<td><c:out value="${bal.serial}"></c:out></td>
+						                      		<td><c:out value="${bal.materialOpbal.materialName}"></c:out>  </td>
+						                      		<td><c:out value="${bal.materialOpbal.storeName}"></c:out>  </td>
+						                      		<td><c:out value="${bal.materialOpbal.tmCmFinancialMas.assessmentYear}"></c:out>  </td>
+						                      		<td><c:out value="${bal.materialOpbal.openQty}"></c:out>  </td>
+						                      		<td><c:out value="${bal.materialOpbal.openQtyAsondate}"></c:out>  </td>
+						                      		<td><c:out value="${bal.materialOpbal.lotNo}"></c:out>  </td>
 						                      		<td>
-														<a><i class="fa fa-edit"></i></a> / <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+														<a href="javascript:editMapping(${bal.materialOpbal.matOpbalId} )"><i class="fa fa-edit"></i></a> /
+														 <a href="javascript:deleteMapping(${bal.materialOpbal.matOpbalId} )"><i class="fa fa-trash" aria-hidden="true"></i></a>
 													</td>
 						                      	</tr>
+						                      	</c:forEach>   
+						                      
 						                      </tbody>
 						                    </table>
 										</div>
@@ -160,8 +175,24 @@
 	$('#todate').datetimepicker({
 		format:"DD/MM/YYYY"
 	});
+	
+	function myFunc() {
+	    var  selectedValue= $("#stores").val();
+	   
+	    window.location = "fetchmaterials?storeId="+selectedValue;
+	   }
+	
+	function editMapping(matOpbalId) {
+	      window.location = "editmaterialopbal?matOpbalId="+matOpbalId+"&edit=true";
+	   }
+	
+	function deleteMapping(matOpbalId) {
+	      window.location = "deletematerialopbal?matOpbalId="+matOpbalId+"&edit=true";
+	   }
+	
+	
 	</script>
-		
+</form:form>		
 </body>
 </html>
 </compress:html>

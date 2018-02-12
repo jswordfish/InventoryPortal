@@ -85,28 +85,38 @@
                     <li><a><i class="fa fa-edit"></i> <spring:message code="label.document.presentation.invent" /> <span class="fa fa-chevron-down"></span></a>
                   
 						<ul class="nav child_menu">
-                   	  <li><a><spring:message code="label.inventory.master.store.title" /><span class="fa fa-chevron-down"></span></a>
+<%--                    	  <li><a><spring:message code="label.inventory.master.store.title" /><span class="fa fa-chevron-down"></span></a> --%>
+<!--                    	  	<ul class="nav child_menu"> -->
+<%--                    	  	  <li><a href="<c:url value="/inventory/addstore" />" ><spring:message code="label.inventory.master.store.add" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/editstore" />" ><spring:message code="label.inventory.master.store.edit" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/searchstore" />" ><spring:message code="label.inventory.master.store.search" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/liststore" />" ><spring:message code="label.inventory.master.store.list" /></a></li> --%>
+<!--                    	  	</ul> -->
+<!--                    	  </li> -->
+<%--                       <li><a><spring:message code="label.inventory.master.materialtype.title" /><span class="fa fa-chevron-down"></span></a> --%>
+<!--                    	  		<ul class="nav child_menu"> -->
+<%--                    	  	  <li><a href="<c:url value="/inventory/addmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.add" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/editmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.edit" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/searchmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.search" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/listmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.list" /></a></li> --%>
+<!--                    	  	</ul> -->
+<!--                    	  </li> -->
+                   	  <li><a><spring:message code="label.inventory.masters" /><span class="fa fa-chevron-down"></span></a>
                    	  	<ul class="nav child_menu">
-                   	  	  <li><a href="<c:url value="/inventory/addstore" />" ><spring:message code="label.inventory.master.store.add" /></a></li>
-	                      <li><a href="<c:url value="/inventory/editstore" />" ><spring:message code="label.inventory.master.store.edit" /></a></li>
-	                      <li><a href="<c:url value="/inventory/searchstore" />" ><spring:message code="label.inventory.master.store.search" /></a></li>
-	                      <li><a href="<c:url value="/inventory/liststore" />" ><spring:message code="label.inventory.master.store.list" /></a></li>
-                   	  	</ul>
-                   	  </li>
-                      <li><a><spring:message code="label.inventory.master.materialtype.title" /><span class="fa fa-chevron-down"></span></a>
-                   	  		<ul class="nav child_menu">
-                   	  	  <li><a href="<c:url value="/inventory/addmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.add" /></a></li>
-	                      <li><a href="<c:url value="/inventory/editmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.edit" /></a></li>
-	                      <li><a href="<c:url value="/inventory/searchmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.search" /></a></li>
-	                      <li><a href="<c:url value="/inventory/listmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.list" /></a></li>
-                   	  	</ul>
-                   	  </li>
-                   	  <li><a><spring:message code="label.inventory.master.materialmapping.title" /><span class="fa fa-chevron-down"></span></a>
-                   	  	<ul class="nav child_menu">
-                   	  	  <li><a href="<c:url value="/inventory/addmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.add" /></a></li>
-	                      <li><a href="<c:url value="/inventory/editmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.edit" /></a></li>
-	                      <li><a href="<c:url value="/inventory/fetchmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.search" /></a></li>
+<%--                    	  	  <li><a href="<c:url value="/inventory/addmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.add" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/editmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.edit" /></a></li> --%>
+<%-- 	                      <li><a href="<c:url value="/inventory/fetchmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.search" /></a></li> --%>
+ 						  <li><a href="<c:url value="/inventory/liststore" />" ><spring:message code="label.inventory.master.store.list" /></a></li>
+ 						  <li><a href="<c:url value="/inventory/listmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.list" /></a></li>
 	                      <li><a href="<c:url value="/inventory/viewmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.list" /></a></li>
+                   	  	</ul>
+                   	  </li>
+                   	  
+                   	  <li><a><spring:message code="label.inventory.dataentry.title" /><span class="fa fa-chevron-down"></span></a>
+                   	  	<ul class="nav child_menu">
+                   	  	  <li><a href="<c:url value="/inventory/dataentry/viewmaterialopeningbalance" />" ><spring:message code="label.inventory.dataentry.materialmaterialopeningbalance.search" /></a></li>
+	                     
+	                     
                    	  	</ul>
                    	  </li>
                     </ul>

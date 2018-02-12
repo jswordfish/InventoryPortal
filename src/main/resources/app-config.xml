@@ -22,7 +22,9 @@
     									  com.innowave.mahaulb.common.service,	
     									  com.innowave.mahaulb.common.repository,
     									com.innowave.mahaulb.web.common.rest,
-    									 com.innowave.mahaulb.web.socialwelfare
+    									 com.innowave.mahaulb.web.socialwelfare,
+    									 com.innowave.mahaulb.repository.inventory.repositories,
+    									com.innowave.mahaulb.repository.inventory
     									  
     									  
     									  " />
