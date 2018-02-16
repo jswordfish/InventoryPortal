@@ -13,7 +13,7 @@
  -->
 
 <!-- ${pageContext.request.contextPath} -->
-<jsp:include page="../../common/header.jsp" />
+<jsp:include page="../common/header.jsp" />
 
 </head>
 <body class="nav-md">
@@ -109,11 +109,11 @@
 	
 
 			
-			<jsp:include page="../../common/footer.jsp" />
+			<jsp:include page="../common/footer.jsp" />
 		</div>
 </div>
 	
-	<jsp:include page="../../common/jsFooter.jsp" />
+	<jsp:include page="../common/jsFooter.jsp" />
 		
 </body>
 </html>

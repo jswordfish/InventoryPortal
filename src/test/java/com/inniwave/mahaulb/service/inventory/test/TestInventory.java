@@ -3,6 +3,10 @@ package com.inniwave.mahaulb.service.inventory.test;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -120,6 +124,17 @@ public class TestInventory {
 	
 	@Test
 	@Rollback(value=false)
+	public void testRemoveStore() {
+		Session currentSession = sessionFactory.getCurrentSession();
+		CriteriaBuilder builder = currentSession.getCriteriaBuilder();
+		CriteriaDelete<TmInvStore> query = builder.createCriteriaDelete(TmInvStore.class);
+		Root e = query.from(TmInvStore.class);
+		query.where(builder.equal(e.get("storeId"), 10));
+		currentSession.createQuery(query).executeUpdate();
+	}
+	
+	@Test
+	@Rollback(value=false)
 	public void testCreateMaterialTypeToStoreMapping() {
 		TmInvMaterialTypeStoreMapping mapping = new TmInvMaterialTypeStoreMapping();
 		mapping.setCreatedDate(new Date());
@@ -219,6 +234,79 @@ public class TestInventory {
 				"  NULL,\r\n" + 
 				"  NULL\r\n" + 
 				")";
+		Session currentSession = sessionFactory.getCurrentSession();
+		 SQLQuery query = currentSession.createSQLQuery(nativeQry);
+		 query.executeUpdate();
+	}
+	
+	@Test
+	@Rollback(value=false)
+	public void testCreateSupplier() {
+		
+		String nativeQry = "INSERT INTO \r\n" + 
+				"  inventory.tm_inv_supplier\r\n" + 
+				"(\r\n" + 
+				"  supplier_id,\r\n" + 
+				"  ulb_id,\r\n" + 
+				"  lookup_det_id_supp_type,\r\n" + 
+				"  supplier_code,\r\n" + 
+				"  supplier_name,\r\n" + 
+				"  supplier_parent_id,\r\n" + 
+				"  supplier_parent_code,\r\n" + 
+				"  supplier_adderss,\r\n" + 
+				"  contact_person_name,\r\n" + 
+				"  contact_no,\r\n" + 
+				"  email_id,\r\n" + 
+				"  website,\r\n" + 
+				"  tin_no,\r\n" + 
+				"  pan_no,\r\n" + 
+				"  cst_no,\r\n" + 
+				"  vat_no,\r\n" + 
+				"  gst_no,\r\n" + 
+				"  bank_name,\r\n" + 
+				"  bank_account_no,\r\n" + 
+				"  bank_ifsc_code,\r\n" + 
+				"  micr_code,\r\n" + 
+				"  status,\r\n" + 
+				"  created_by,\r\n" + 
+				"  created_date,\r\n" + 
+				"  updated_by,\r\n" + 
+				"  updated_date,\r\n" + 
+				"  mac_id,\r\n" + 
+				"  ip_address,\r\n" + 
+				"  device_from\r\n" + 
+				")\r\n" + 
+				"VALUES (\r\n" + 
+				"  0,\r\n" + 
+				"  115,\r\n" + 
+				"  1,\r\n" + 
+				"  'Test01',\r\n" + 
+				"  'Test01',\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  'Mumbai',\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  '2018-02-10',\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				" NULL,\r\n" + 
+				"  NULL,\r\n" + 
+				"  NULL\r\n" + 
+				");";
 		Session currentSession = sessionFactory.getCurrentSession();
 		 SQLQuery query = currentSession.createSQLQuery(nativeQry);
 		 query.executeUpdate();

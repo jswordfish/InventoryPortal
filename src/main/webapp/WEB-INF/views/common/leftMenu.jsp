@@ -109,6 +109,8 @@
  						  <li><a href="<c:url value="/inventory/liststore" />" ><spring:message code="label.inventory.master.store.list" /></a></li>
  						  <li><a href="<c:url value="/inventory/listmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.list" /></a></li>
 	                      <li><a href="<c:url value="/inventory/viewmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.list" /></a></li>
+	                       <li><a href="<c:url value="/inventory/viewstockagingmaster" />" ><spring:message code="label.inventory.master.stockagingmaster.list" /></a></li>
+	                        <li><a href="<c:url value="/inventory/viewpricemaster" />" ><spring:message code="label.inventory.master.pricemaster.list" /></a></li>
                    	  	</ul>
                    	  </li>
                    	  
