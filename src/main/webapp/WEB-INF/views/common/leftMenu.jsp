@@ -103,14 +103,15 @@
 <!--                    	  </li> -->
                    	  <li><a><spring:message code="label.inventory.masters" /><span class="fa fa-chevron-down"></span></a>
                    	  	<ul class="nav child_menu">
-<%--                    	  	  <li><a href="<c:url value="/inventory/addmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.add" /></a></li> --%>
-<%-- 	                      <li><a href="<c:url value="/inventory/editmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.edit" /></a></li> --%>
-<%-- 	                      <li><a href="<c:url value="/inventory/fetchmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.search" /></a></li> --%>
- 						  <li><a href="<c:url value="/inventory/liststore" />" ><spring:message code="label.inventory.master.store.list" /></a></li>
- 						  <li><a href="<c:url value="/inventory/listmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.list" /></a></li>
+ 							<li><a href="<c:url value="/inventory/searchstore" />" ><spring:message code="label.inventory.master.store.title" /></a></li>
+						
 	                      <li><a href="<c:url value="/inventory/viewmaterialmapping" />" ><spring:message code="label.inventory.master.materialmapping.list" /></a></li>
-	                       <li><a href="<c:url value="/inventory/viewstockagingmaster" />" ><spring:message code="label.inventory.master.stockagingmaster.list" /></a></li>
+	                      
 	                        <li><a href="<c:url value="/inventory/viewpricemaster" />" ><spring:message code="label.inventory.master.pricemaster.list" /></a></li>
+	                          <li><a href="<c:url value="/inventory/viewmaterialsupplier" />" ><spring:message code="label.inventory.master.supplier.title" /></a></li>
+						  <li><a href="<c:url value="/inventory/viewmaterial" />" ><spring:message code="label.inventory.master.material.title" /></a></li>
+						   <li><a href="<c:url value="/inventory/searchmaterialtype" />" ><spring:message code="label.inventory.master.materialtype.title" /></a></li>
+						    <li><a href="<c:url value="/inventory/viewstockagingmaster" />" ><spring:message code="label.inventory.master.stockagingmaster.list" /></a></li>
                    	  	</ul>
                    	  </li>
                    	  

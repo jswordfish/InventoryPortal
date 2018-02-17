@@ -14,11 +14,9 @@
 
 <!-- ${pageContext.request.contextPath} -->
 <jsp:include page="../../common/header.jsp" />
-
 </head>
 <body class="nav-md">
-
-
+<form:form id="materialstore" action="search" method="POST" modelAttribute="storeForm">
 	<div class="container body">
 		<div class="main_container">
 			<jsp:include page="../../common/leftMenu.jsp" />
@@ -49,20 +47,23 @@
 								</div>
 								<div class="x_content">
 									<br />
+									
 									<div class="row">
 								           <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.store.storename" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <select class="form-control">
-												 	<option></option>
-												 </select>
+											  <form:select path="selectedInvStore" class="form-control" >
+												 	<form:option id= "invStores" value="" label="--Please Select--"></form:option>
+    												<form:options items="${stores}" itemValue="storeId" itemLabel="storeName" />
+												 </form:select>
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.store.deptname" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <select class="form-control">
-												 	<option></option>
-												 </select>
+												 <form:select id="deps" path="selectedDept" class="form-control" >
+												 	<form:option id= "cmDepartments" value="" label="--Please Select--"></form:option>
+    												<form:options items="${departments}" itemValue="depId" itemLabel="depNameEn"/>
+												 </form:select>
 											  </div>
 											  
 										 </div>
@@ -73,12 +74,13 @@
 
 										<div class="form-group ">
 											<div class="actionBar">
-												<button class="btn btn-deanger" type="reset"><spring:message code="label.btn.reset" /></button>
-												<button type="submit" id="submitBtn"
+												<button class="btn btn-deanger" type="submit" name="resetMaterial" value="resetMaterialSearch"><spring:message code="label.btn.reset" /></button>
+												<button type="submit" id="submitBtn" name="searchmaterial" value="searchMaterialStore"
 													class="btn btn-success"><spring:message code="label.btn.search" /></button>
 											</div>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -93,7 +95,7 @@
 									</h2>
 									<ul class="nav navbar-right panel_toolbox">
 				                     <li>
-				                     	<a href="<c:url value="/inventory/addsanctionpost" />"><button type="button" id="addBtn" class="btn"><spring:message code="label.btn.add" /></button></a>
+				                     <button type="submit" id="addBtn" class="btn" name="addmaterial" value="addStore" ><spring:message code="label.btn.add" /></button></a>
 				                     </li>	  
 				                    </ul>
 									<div class="clearfix"></div>
@@ -116,15 +118,18 @@
 						                      	</tr>
 						                      </thead>
 						                      <tbody>
+						                      <c:forEach items="${dtos}" var="dto" >   
 						                      	<tr>
-						                      		<td>1</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td><input type="checkbox"></td>
+						                      		<td><c:out value="${dto.sequence}"></c:out></td>
+						                      		<td><c:out value="${dto.storeName}"></c:out>  </td>
+						                      		<td><c:out value="${dto.deptName}"></c:out>  </td>
+						                      		<td><c:out value="${dto.centralStore}"></c:out>  </td>
 						                      		<td>
-														<a><i class="fa fa-edit"></i></a> / <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+														<a href="javascript:editMaterialStore(${dto.storeId})"><i class="fa fa-edit"></i></a> /
+														 <a href="javascript:deleteMapping(${dto.storeId} )"><i class="fa fa-trash" aria-hidden="true"></i></a>
 													</td>
 						                      	</tr>
+						                      	</c:forEach>  
 						                      </tbody>
 						                    </table>
 										</div>
@@ -149,8 +154,34 @@
 		
 	 <script>
 		$("#vendortable").DataTable();
+		
+		function editMaterialStore(materialStoreId) {
+		      window.location = "editmaterialStore?storeId="+materialStoreId+"&edit=true";
+		   }
+		
+		function deleteMapping(materialStoreId) {
+			
+			 var  selectedValue= $("#deps").val();
+		      window.location = "deletematerialStore?storeId="+materialStoreId+"&edit=true"+"&departId="+selectedValue;
+		   }
+		
 	</script>
-
+	
+		<c:if test="${msgtype != null}">
+		 <script>
+	 var notification = '<spring:message code="label.common.notification" />';
+	 $(function(){
+		 new PNotify({
+	         title: notification,
+	         text: '${message}',
+	         type: '${msgtype}',
+	         styling: 'bootstrap3',
+	         hide: true
+	     });
+	 }); 	 
+      </script>
+</c:if>
+	</form:form>
 </body>
 </html>
 </compress:html>

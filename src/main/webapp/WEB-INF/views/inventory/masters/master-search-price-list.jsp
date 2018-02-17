@@ -28,15 +28,15 @@ String aEndDate="";
  -->
 
 <!-- ${pageContext.request.contextPath} -->
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 
 </head>
 <body class="nav-md">
  <form:form id="priceForm" action="searchpricemaster" method="POST" modelAttribute="inventoryPriceMasterDTO">
 	<div class="container body">
 		<div class="main_container">
-			<jsp:include page="../common/leftMenu.jsp" />
-			<jsp:include page="../common/headerTop.jsp" />
+			<jsp:include page="../../common/leftMenu.jsp" />
+			<jsp:include page="../../common/headerTop.jsp" />
 
 
 			<!-- page content -->
@@ -215,11 +215,11 @@ String aEndDate="";
 
                
                    <!-- /modals ends here-->
-			<jsp:include page="../common/footer.jsp" />
+			<jsp:include page="../../common/footer.jsp" />
 		</div>
 	</div>
 
-	<jsp:include page="../common/jsFooter.jsp" />
+	<jsp:include page="../../common/jsFooter.jsp" />
 <script>
 $('#hoardreg').datetimepicker({
 	 viewMode : 'days',

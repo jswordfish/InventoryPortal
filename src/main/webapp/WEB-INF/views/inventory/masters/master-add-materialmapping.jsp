@@ -13,7 +13,7 @@
  -->
 
 <!-- ${pageContext.request.contextPath} -->
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 
 </head>
 <body class="nav-md">
@@ -21,8 +21,8 @@
 <form:form id="mappingForm" action="savemapping" method="POST" commandName="invForm">
 	<div class="container body">
 		<div class="main_container">
-			<jsp:include page="../common/leftMenu.jsp" />
-			<jsp:include page="../common/headerTop.jsp" />
+			<jsp:include page="../../common/leftMenu.jsp" />
+			<jsp:include page="../../common/headerTop.jsp" />
 
 
 			<!-- page content -->
@@ -133,11 +133,11 @@
 	
 
 			
-			<jsp:include page="../common/footer.jsp" />
+			<jsp:include page="../../common/footer.jsp" />
 		</div>
 </div>
 	
-	<jsp:include page="../common/jsFooter.jsp" />
+	<jsp:include page="../../common/jsFooter.jsp" />
 		 <script>
 	
 		

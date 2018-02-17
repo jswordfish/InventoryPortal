@@ -19,6 +19,7 @@
 <body class="nav-md">
 
 
+<form:form id="materialadd" action="addsupplier" method="POST" modelAttribute="addForm">
 	<div class="container body">
 		<div class="main_container">
 			<jsp:include page="../../common/leftMenu.jsp" />
@@ -52,14 +53,15 @@
 							              <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.suppliertype" />:<span class="required">*</span></label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <select class="form-control">
-												 	<option></option>
-												 </select>
+												<form:select  id= "suppliertyp" path="selectedSupplier" class="form-control" >
+												 	<%-- <form:option  value="0" label="--Please Select--"></form:option> --%>
+    												<form:options items="${suppliertyp}" itemValue="lookupDetId" itemLabel="lookupDetDescEn" />
+												 </form:select>
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.suppliercode" />:<span class="required">*</span></label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												 <form:input path="supplierCode" cssClass="form-control" />
 											  </div>
 											  
 										 </div>
@@ -67,68 +69,68 @@
 										<div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.parentsuppliercode" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												<form:input path="parentSupplierCode" cssClass="form-control" />
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.suppliername" />:<span class="required">*</span></label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												<form:input path="supplierName" cssClass="form-control" />
 											  </div>
 											  
 										 </div>
 										<div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.supplieraddres" />:<span class="required">*</span></label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <textarea class="form-control"></textarea>
+												<form:input path="supplierAddress" cssClass="form-control" />
 											  </div>
 										 </div>
 										 <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.contactperson" />:<span class="required">*</span></label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+													<form:input path="contactPerson" cssClass="form-control" />
 											  </div>
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.contactno" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												 <form:input path="contactNumber" cssClass="form-control" />
 											  </div>
 										 </div>
 										 <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.email" />:<span class="required">*</span></label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <input type="email" class="form-control">
+												 <form:input path="email" cssClass="form-control" />
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.website" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												 <form:input path="website" cssClass="form-control" />
 											  </div>
 										 </div>
 										 <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.tinno" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <input type="text" class="form-control">
+												  <form:input path="tinNo" cssClass="form-control" />
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.panno" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												<input type="text" class="form-control">
+												 <form:input path="panNo" cssClass="form-control" />
 											  </div>
 										 </div>
 										 <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.cstno" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <input type="text" class="form-control">
+												  <form:input path="cstNo" cssClass="form-control" />
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.uatno" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												 <form:input path="uatNo" cssClass="form-control" />
 											  </div>
 										 </div>
 										 <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.gstno" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												 <form:input path="gstNo" cssClass="form-control" />
 											  </div>
 										 </div>
 										 <div class="x_title">
@@ -141,17 +143,17 @@
 										 <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.bankname" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												<form:input path="bankName" cssClass="form-control" />
 											  </div>
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.ifsc" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												<form:input path="ifsc" cssClass="form-control" />
 											  </div>
 										 </div>
 										  <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.bankacc" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+												<form:input path="bankAcc" cssClass="form-control" />
 											  </div>
 										 </div>
 									</div>
@@ -159,9 +161,9 @@
 									<div class="row">
 										<div class="form-group ">
 											<div class="actionBar">
-												<button type="submit" id="submitBtn" class="btn"><spring:message code="label.btn.save" /></button>
-												<button class="btn" type="reset"><spring:message code="label.btn.reset" /></button>
-												<a href="<c:url value="/inventory/searchsupplier" />"><button class="btn" type="reset"><spring:message code="label.btn.close" /></button></a>
+												<button type="submit" id="submitBtn" class="btn" value="savematerialSupplier" name="savematerialsupplierDetails"><spring:message code="label.btn.save" /></button>
+												<button class="btn" type="submit" value="resetSupplierAdd" name="resetsupplier"><spring:message code="label.btn.reset" /></button>
+												<button class="btn" type="submit" value="viewMaterialSupplier" name="closesupplier"><spring:message code="label.btn.close" /></button>
 											</div>
 										</div>
 									</div>
@@ -184,6 +186,21 @@
 	
 	<jsp:include page="../../common/jsFooter.jsp" />
 		
+		<c:if test="${msgtype != null}">
+		 <script>
+	 var notification = '<spring:message code="label.common.notification" />';
+	 $(function(){
+		 new PNotify({
+	         title: notification,
+	         text: '${message}',
+	         type: '${msgtype}',
+	         styling: 'bootstrap3',
+	         hide: true
+	     });
+	 }); 	 
+      </script>
+</c:if>
+	</form:form>	
 </body>
 </html>
 </compress:html>

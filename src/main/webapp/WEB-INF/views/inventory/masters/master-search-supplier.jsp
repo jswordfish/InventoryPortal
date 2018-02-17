@@ -18,7 +18,7 @@
 </head>
 <body class="nav-md">
 
-
+<form:form id="materialsupplier" action="searchsupplier" method="POST" modelAttribute="supplierform">
 	<div class="container body">
 		<div class="main_container">
 			<jsp:include page="../../common/leftMenu.jsp" />
@@ -53,14 +53,15 @@
 								           <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.suppliertype" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <select class="form-control">
-												 	<option></option>
-												 </select>
+											  <form:select  id= "suppliertyp" path="selectedSupplier" class="form-control" >
+												 	<form:option  value="" label="--Please Select--"></form:option>
+    												<form:options items="${suppliertyp}" itemValue="lookupDetId" itemLabel="lookupDetDescEn" />
+												 </form:select>
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.suppliercode" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+											  <form:input path="supplierCode" cssClass="form-control" />
 											  </div>
 											  
 										 </div>
@@ -68,12 +69,12 @@
 										<div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.parentsuppliercode" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+											   <form:input path="parentSupplierCode" cssClass="form-control" />
 											  </div>
 											  
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.supplier.suppliername" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <input type="text" class="form-control">
+											  <form:input path="supplierName" cssClass="form-control" />
 											  </div>
 											  
 										 </div>
@@ -84,8 +85,8 @@
 
 										<div class="form-group ">
 											<div class="actionBar">
-												<button class="btn btn-deanger" type="reset"><spring:message code="label.btn.reset" /></button>
-												<button type="submit" id="submitBtn"
+												<button class="btn btn-deanger" type="submit" name="resetSupplier" value="resetMaterialSupplier"><spring:message code="label.btn.reset" /></button>
+												<button type="submit" id="submitBtn" name="searchmaterialSupplier" value="searchMaterialSupplier"
 													class="btn btn-success"><spring:message code="label.btn.search" /></button>
 											</div>
 										</div>
@@ -104,7 +105,7 @@
 									</h2>
 									<ul class="nav navbar-right panel_toolbox">
 				                     <li>
-				                     	<a href="<c:url value="/inventory/addsupplier" />"><button type="button" id="addBtn" class="btn"><spring:message code="label.btn.add" /></button></a>
+				                     	<button type="submit" id="addBtn" class="btn" name="addsupplierdetails" value="addMaterialSupplier"><spring:message code="label.btn.add" /></button></a>
 				                     </li>	  
 				                    </ul>
 									<div class="clearfix"></div>
@@ -128,16 +129,19 @@
 						                      	</tr>
 						                      </thead>
 						                      <tbody>
+						                       <c:forEach items="${supplierlist}" var="dto" >   
 						                      	<tr>
-						                      		<td>1</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
+						                      		<td><c:out value="${dto.serial}"></c:out></td>
+						                      		<td><c:out value="${dto.supplierTyp}"></c:out>  </td>
+						                      		<td><c:out value="${dto.supplierCode}"></c:out>  </td>
+						                      		<td><c:out value="${dto.parentSupplierCode}"></c:out>  </td>
+						                      		<td><c:out value="${dto.supplierName}"></c:out>  </td>
 						                      		<td>
-														<a><i class="fa fa-edit"></i></a> / <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+														<a href="javascript:editMaterialSupplier(${dto.supplierId})"><i class="fa fa-edit"></i></a> /
+														 <a href="javascript:deleteMaterialSupplier(${dto.supplierId} )"><i class="fa fa-trash" aria-hidden="true"></i></a>
 													</td>
 						                      	</tr>
+						                      	</c:forEach>  
 						                      </tbody>
 						                    </table>
 										</div>
@@ -158,7 +162,35 @@
 	</div>
 	
 	<jsp:include page="../../common/jsFooter.jsp" />
-
+	
+	<script>
+		$("#vendortable").DataTable();
+		
+		function editMaterialSupplier(materialSupplierId) {
+		      window.location = "editmaterialSupplier?supplierId="+materialSupplierId+"&edit=true";
+		   }
+		
+		function deleteMaterialSupplier(materialSupplierId) {
+		      window.location = "deletematerialSupplier?supplierId="+materialSupplierId+"&edit=true";
+		   }
+		
+	</script>
+	
+		<c:if test="${msgtype != null}">
+		 <script>
+	 var notification = '<spring:message code="label.common.notification" />';
+	 $(function(){
+		 new PNotify({
+	         title: notification,
+	         text: '${message}',
+	         type: '${msgtype}',
+	         styling: 'bootstrap3',
+	         hide: true
+	     });
+	 }); 	 
+      </script>
+</c:if>
+</form:form>
 </body>
 </html>
 </compress:html>

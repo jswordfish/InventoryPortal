@@ -44,15 +44,15 @@ request.setAttribute("rateTypeId", rateTypeId);
  -->
 
 <!-- ${pageContext.request.contextPath} -->
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 
 </head>
 <body class="nav-md">
  <form:form id="priceAddForm" action="savePrice" method="POST" modelAttribute="inventoryPriceMasterDTO">
 	<div class="container body">
 		<div class="main_container">
-			<jsp:include page="../common/leftMenu.jsp" />
-			<jsp:include page="../common/headerTop.jsp" />
+			<jsp:include page="../../common/leftMenu.jsp" />
+			<jsp:include page="../../common/headerTop.jsp" />
 
 
 		
@@ -244,11 +244,11 @@ request.setAttribute("rateTypeId", rateTypeId);
 
                
                    <!-- /modals ends here-->
-			<jsp:include page="../common/footer.jsp" />
+			<jsp:include page="../../common/footer.jsp" />
 		</div>
 	</div>
 
-	<jsp:include page="../common/jsFooter.jsp" />
+	<jsp:include page="../../common/jsFooter.jsp" />
 <script>
 	$(function() {
 		

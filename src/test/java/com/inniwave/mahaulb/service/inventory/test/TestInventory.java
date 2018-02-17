@@ -162,6 +162,52 @@ public class TestInventory {
 	
 	@Test
 	@Rollback(value=false)
+	public void testParentMaterialTYp()
+	{
+	String query1="INSERT INTO \r\n" + 
+			"  inventory.tm_inv_material_type\r\n" + 
+			"(\r\n" + 
+			"  material_type_id,\r\n" + 
+			"  ulb_id,\r\n" + 
+			"  material_type_code,\r\n" + 
+			"  material_type_name,\r\n" + 
+			"  material_type_desc,\r\n" + 
+			"  parent_type_yn,\r\n" + 
+			"  parent_material_type_id,\r\n" + 
+			"  status,\r\n" + 
+			"  created_by,\r\n" + 
+			"  created_date,\r\n" + 
+			"  updated_by,\r\n" + 
+			"  updated_date,\r\n" + 
+			"  mac_id,\r\n" + 
+			"  ip_address,\r\n" + 
+			"  device_from\r\n" + 
+			")\r\n" + 
+			"VALUES (\r\n" + 
+			"  1005,\r\n" + 
+			"  115,\r\n" + 
+			"  005,\r\n" + 
+			"  'Test06',\r\n" + 
+			"  'Test',\r\n" + 
+			"  'N',\r\n" + 
+			"  1000,\r\n" + 
+			"  1,\r\n" + 
+			"  NULL,\r\n" + 
+			"  '2018-02-10',\r\n" + 
+			"  NULL,\r\n" + 
+			"  NULL,\r\n" + 
+			"  NULL,\r\n" + 
+			"  NULL,\r\n" + 
+			"  NULL \r\n" + 
+			");";
+	
+	Session currentSession = sessionFactory.getCurrentSession();
+	 SQLQuery query = currentSession.createSQLQuery(query1);
+	 query.executeUpdate();
+	}
+	
+	@Test
+	@Rollback(value=false)
 	public void testGetStores() {
 		List<TmInvStore> stores = mappingRep.getAllStores(24);
 		

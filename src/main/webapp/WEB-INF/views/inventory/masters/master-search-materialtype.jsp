@@ -18,6 +18,7 @@
 </head>
 <body class="nav-md">
 
+<form:form id="materialTypform" action="materialType/search" method="POST" modelAttribute="searchmaterialtyp">
 
 	<div class="container body">
 		<div class="main_container">
@@ -53,17 +54,20 @@
 								           <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialtype.materialtypename" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <select class="form-control">
-												 	<option></option>
-												 </select>
+												   <form:select id="selected" path="materialTypeName" class="form-control" onchange="selectMaterial()">
+												 	<%-- <form:option value="0" label="--Please Select--"></form:option> --%>
+    												<form:options items="${materiallist}" itemValue="materialTypeId" itemLabel="materialTypeName" />
+												 </form:select>
 											  </div>
 											  
-											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialtype.parentmaterialname" />:</label>
+											  
+											   <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialtype.parentmaterialname" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												  <select class="form-control">
-												 	<option></option>
-												 </select>
-											  </div>
+												  <form:select path="parentMaterialTyp" class="form-control" >
+												 	<%-- <form:option value="0" label="--Please Select--"></form:option> --%>
+    												<form:options items="${parentmaterialtyp}" itemValue="'" itemLabel="materialTypeName"/>
+												 </form:select>
+											  </div>  
 											  
 										 </div>
 											
@@ -73,8 +77,8 @@
 
 										<div class="form-group ">
 											<div class="actionBar">
-												<button class="btn btn-deanger" type="reset"><spring:message code="label.btn.reset" /></button>
-												<button type="submit" id="submitBtn"
+												<button class="btn btn-deanger"  type="submit" name="resetMaterialType" value="resetMaterialtype"><spring:message code="label.btn.reset" /></button>
+												<button type="submit" id="submitBtn" name="searchMaterialType" value="searchMaterialtypeParam" 
 													class="btn btn-success"><spring:message code="label.btn.search" /></button>
 											</div>
 										</div>
@@ -93,7 +97,7 @@
 									</h2>
 									<ul class="nav navbar-right panel_toolbox">
 				                     <li>
-				                     	<a href="<c:url value="/inventory/addsanctionpost" />"><button type="button" id="addBtn" class="btn"><spring:message code="label.btn.add" /></button></a>
+				                     <button type="submit" id="addBtn" class="btn" name="addmaterial" value="addMaterialType" ><spring:message code="label.btn.add" /></button></a>
 				                     </li>	  
 				                    </ul>
 									<div class="clearfix"></div>
@@ -117,16 +121,19 @@
 						                      	</tr>
 						                      </thead>
 						                      <tbody>
+						                      <c:forEach items="${typeDTOs}" var="dto" >   
 						                      	<tr>
-						                      		<td>1</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
-						                      		<td>test</td>
+						                      		<td><c:out value="${dto.serial}"></c:out></td>
+						                      		<td><c:out value="${dto.materialTypCode}"></c:out>  </td>
+						                      		<td><c:out value="${dto.materialTypeName}"></c:out>  </td>
+						                      		<td><c:out value="${dto.materialTypeDesc}"></c:out>  </td>
+						                      		<td><c:out value="${dto.parentMaterialType.materialTypeName}"></c:out>  </td>
 						                      		<td>
-														<a><i class="fa fa-edit"></i></a> / <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+														<a href="javascript:editMaterialType(${dto.materialTypeId} )"><i class="fa fa-edit"></i></a> /
+														 <a href="javascript:deleteMaterialType(${dto.materialTypeId})"><i class="fa fa-trash" aria-hidden="true"></i></a>
 													</td>
 						                      	</tr>
+						                      	</c:forEach>   
 						                      </tbody>
 						                    </table>
 										</div>
@@ -143,6 +150,23 @@
 
 			
 			<jsp:include page="../../common/footer.jsp" />
+			<script type="text/javascript">
+			$("#vendortable").DataTable();
+			function selectMaterial() {
+			    var  selectedValue= $("#selected").val();
+			   
+			    window.location = "getparentmaterial?materialTypeId="+selectedValue;
+			   }
+			
+			function editMaterialType(materialTypeId) {
+			      window.location = "editMaterialType?materialTypeId="+materialTypeId+"&edit=true";
+			   }
+			
+			function deleteMaterialType(materialTypeId){
+				 window.location = "deleteMaterialType?materialTypeId="+materialTypeId+"&edit=true";
+			}
+			
+			</script>
 		</div>
 	</div>
 	
@@ -153,6 +177,7 @@
 		$("#vendortable").DataTable();
 	</script>
 
+</form:form>
 </body>
 </html>
 </compress:html>

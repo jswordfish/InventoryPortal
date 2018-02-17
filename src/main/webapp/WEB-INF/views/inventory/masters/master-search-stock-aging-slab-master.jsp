@@ -12,18 +12,18 @@
  -->
 
 <!-- ${pageContext.request.contextPath} -->
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 
 </head>
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
-			<jsp:include page="../common/leftMenu.jsp" />
-			<jsp:include page="../common/headerTop.jsp" />
+			<jsp:include page="../../common/leftMenu.jsp" />
+			<jsp:include page="../../common/headerTop.jsp" />
 
 
 			<!-- page content -->
-			<form id="stockagingslab">
+			
 
 			<div class="right_col" role="main">
 				<div class="">
@@ -36,7 +36,7 @@
 									<h2>
 										<%-- <spring:message code="label.treename" /> --%>
 									
-										<spring:message code="label.document.stockslab.add" />
+										<spring:message code="label.document.stockslab.search" />
 										
 									</h2>
 									<ul class="nav navbar-right panel_toolbox">
@@ -48,10 +48,15 @@
 								</div>
 								<div class="x_content" style="display: block;"> <br> 
     
+   						 
+
+
+    						<form id=""> 
+    		
     							<div class="row form-group">
     								<div class="col-md-2 col-sm-12 col-xs-12">
     									<label>
-    										<spring:message code="label.document.stockslab.fromslab" />:<span class="required">*</span>
+    										<spring:message code="label.document.stockslab.fromslab" />:
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
@@ -61,7 +66,7 @@
     								</div>
     								<div class="col-md-2  col-sm-12 col-xs-12">
     									<label>
-    									<spring:message code="label.document.stockslab.toslab" />:<span class="required">*</span>
+    									<spring:message code="label.document.stockslab.toslab" />:
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
@@ -82,38 +87,82 @@
     								</div>
     							</div> 
     							
-    									<div class="actionbar">
-    										<button type="submit" class="btn"><spring:message code="label.btn.save" /></button>
+    							<div class="actionbar">
     										<button type="reset" class="btn"><spring:message code="label.btn.reset" /></button>
-    										<a href="" ><button type="button" class="btn"><spring:message code="label.btn.close" /></button></a>
+    										<button type="button" class="btn"><spring:message code="label.btn.search" /></button>
 										</div>
-									
-						</div>
+    								
+										</form> 
+									</div>
+							</div>
+							
+							<div class="x_panel ">
+									<div class="x_title">
+									<h2>
+										<spring:message code="label.document.stockslab.list" />
+									</h2>
+									<ul class="nav navbar-right panel_toolbox">
+				                     <li>
+				                     	<a href=""><button type="button" id="addBtn"
+										class="btn btn-success"><spring:message code="label.btn.add" /></button></a>
+				                     </li>	  
+				                    </ul>
+									</div>
+									<div class="x_content">
+										<div class="panel-body">
+													<table id=""
+														 class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+														<thead>
+															<tr>
+																<th><spring:message code="label.tbl.srno" /></th>
+																<th><spring:message code="label.document.stockslab.fromslab" /></th>
+																<th><spring:message code="label.document.stockslab.toslab" /></th>
+																<th><spring:message code="label.document.stockslab.active" /></th>
+																<th><spring:message code="label.btn.editview" /></th>
+															</tr>
+															
+															
+														</thead>
+														<tbody>
+														<tr>
+																<td>1</td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td>
+																<a><i class="fa fa-edit"></i></a> 
+																/
+																<a><i class="fa fa-trash" aria-hidden="true"></i></a>
+											  					<%-- 	<button type="button" class="btn btn-xs" ><spring:message code="label.btn.edit" /></button> 
+											  						<button type="button" class="btn btn-xs" >View</button> --%>
+																</td>
+																
+															</tr>
+														</tbody>
+													</table>
+												</div>
+									</div>
+									</div>
 							
 						</div>
 					</div>
 					<div class="clearfix"></div>
-					
-
 				</div>
-				
-				
-				
 			</div>
-</div>
-</form>
+
 
                   <!-- /modals ends here-->
 
                
                    <!-- /modals ends here-->
-			<jsp:include page="../common/footer.jsp" />
+			<jsp:include page="../../common/footer.jsp" />
 		</div>
 	</div>
 
-	<jsp:include page="../common/jsFooter.jsp" />
+	<jsp:include page="../../common/jsFooter.jsp" />
+<script>
 
+</script>
 </body>
-<%-- <jsp:include page="../../validationscripts/validate-stock-aging-slab.jsp" /> --%>
 </html>
 </compress:html>
