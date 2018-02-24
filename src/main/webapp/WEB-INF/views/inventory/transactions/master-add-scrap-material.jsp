@@ -1,9 +1,14 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.innowave.mahaulb.repository.inventory.dao.trans.TtInvScrap"%>
+<%@page import="java.util.List"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<%@ page import="com.innowave.mahaulb.web.inventory.controller.forms.DisposalOfScrapDTO, java.text.*, java.util.*" %>
 <compress:html >
 <html>
 
@@ -14,6 +19,17 @@
 <!-- ${pageContext.request.contextPath} -->
 <jsp:include page="../../common/header.jsp" />
 
+<%
+DisposalOfScrapDTO form = (DisposalOfScrapDTO)request.getSession().getAttribute("disposalOfScrapDTO");
+String format = "yyyy-MM-dd";
+DateFormat dateFormat = new SimpleDateFormat(format);
+String scrapDate = "";
+	if(form.getCurrent()!= null && form.getCurrent().getScrapDate() != null){
+		scrapDate = dateFormat.format(form.getCurrent().getScrapDate());
+	}
+
+%>
+
 </head>
 <body class="nav-md">
 	<div class="container body">
@@ -23,7 +39,7 @@
 
 
 			<!-- page content -->
-			<form id="disposalofscrap">
+			<form:form id="addScrapForm" action="savedisposalofscrap" method="GET" commandName="disposalOfScrapDTO">
 
 			<div class="right_col" role="main">
 				<div class="">
@@ -55,7 +71,10 @@
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
-    									<input type="text" class="form-control" id="storename" name="storename">
+    									 <form:select id="stores" path="storeId"  cssClass="form-control" required="required"> 
+											      <form:option value="" label="--Please Select"/>
+											      <form:options items="${stores}" itemValue="storeId" itemLabel="storeName"/>
+											 </form:select>
     										
     								</div>
     								<div class="col-md-2 col-sm-12 col-xs-12">
@@ -65,7 +84,7 @@
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
     								<div>
-    									<input type="text" class="form-control" id="disposalno" name="disposalno">
+    									<form:input path="current.scrapNo" cssClass="form-control" required="required" />
     										
     								</div>
     								</div>
@@ -75,19 +94,15 @@
     							<div class="row form-group">
     								<div class="col-md-2 col-sm-12 col-xs-12">
     									<label>
-    										<spring:message code="label.document.disposalscrapmat.disposaldate" />:
+    										<spring:message code="label.document.disposalscrapmat.disposaldate" />:<span class="required">*</span>
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
     								<div>
     								
-    								<div class='input-group date' id='disposaldate'>
-													<input type="text" class="form-control" value="" placeholder="dd/MM/yyyy" id="disposaleddate" name="disposaleddate" />
-													 <span class="input-group-addon"> 
-													 <span class="glyphicon glyphicon-calendar">
-													 </span>
-													</span>
-												</div>
+    							
+													<input type="date" name="fromdisposalddate" id="fromdisposalddate" class="form-control" value="<%= scrapDate %>" required />	
+												
     								
     										
     								</div>
@@ -98,54 +113,30 @@
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
-    								<input type="text" class="form-control" id="disposalby" name="disposalby">
+    								<form:input path="current.createdBy" cssClass="form-control"   required="required" readonly="true"/>
     									
     								</div>
     							</div>
     							
+    							
     							<div class="row form-group">
-    								<div class="col-md-2 col-sm-12 col-xs-12">
-    									<label>
-    										<spring:message code="label.document.disposalscrapmat.auctionorder" />:
-    									</label>
-    								</div>
-    								<div class="col-md-4 col-sm-12 col-xs-12">
-    								<div>
-    									<input type="text" class="form-control" id="auctionorder" name="auctionorder">
-    										
-    								</div>
-    								</div>
-    								<div class="col-md-2  col-sm-12 col-xs-12">
-    									<label>
-    									<spring:message code="label.document.disposalscrapmat.auctionordate" />:<span class="required">*</span>
-    									</label>
-    								</div>
-    								<div class="col-md-4 col-sm-12 col-xs-12">
-    								<div class='input-group date' id='auctionordated'>
-													<input type="text" class="form-control" value="" placeholder="dd/MM/yyyy" id=auctionordate name="auctionordate" />
-													 <span class="input-group-addon"> 
-													 <span class="glyphicon glyphicon-calendar">
-													 </span>
-													</span>
-												</div>
-    								</div>
-    							</div>
-    							<div class="row form-group">
-    								<div class="col-md-2 col-sm-12 col-xs-12">
-    									<label>
-    										<spring:message code="label.document.disposalscrapmat.handoverperson" />:<span class="required">*</span>
-    									</label>
-    								</div>
-    								<div class="col-md-4 col-sm-12 col-xs-12">
-    									<textarea class="form-control" id="handoverperson" name="handoverperson"></textarea>
-    								</div>
     								<div class="col-md-2 col-sm-12 col-xs-12">
     									<label>
     										<spring:message code="label.document.disposalscrapmat.disposalremark" />:<span class="required">*</span>
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
-    									<textarea class="form-control" id="disposalremark" name="disposalremark"></textarea>
+    									<form:textarea path="current.scrapRemarks" cssClass="form-control" required="required" />
+    								</div>
+    								
+    								<div class="col-md-2 col-sm-12 col-xs-12">
+    									<label>
+    										<spring:message code="label.document.scarpwrite.status" />:<span class="required">*</span>
+    									</label>
+    								</div>
+    								<div class="col-md-4 col-sm-12 col-xs-12">
+    									
+    									<form:checkbox path="status" name="status" />
     								</div>
     								
     							</div>
@@ -227,7 +218,7 @@
 				
 			</div>
 
-</form>
+</form:form>
                   <!-- /modals ends here-->
 
                

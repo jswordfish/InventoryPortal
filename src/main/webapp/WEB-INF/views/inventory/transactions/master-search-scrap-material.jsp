@@ -1,9 +1,14 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.innowave.mahaulb.repository.inventory.dao.trans.TtInvScrap"%>
+<%@page import="java.util.List"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<%@ page import="com.innowave.mahaulb.web.inventory.controller.forms.DisposalOfScrapDTO, java.text.*, java.util.*" %>
 <compress:html >
 <html>
 
@@ -13,7 +18,19 @@
 
 <!-- ${pageContext.request.contextPath} -->
 <jsp:include page="../../common/header.jsp" />
-
+<%
+DisposalOfScrapDTO form = (DisposalOfScrapDTO)request.getSession().getAttribute("disposalOfScrapDTO");
+String format = "yyyy-MM-dd";
+DateFormat dateFormat = new SimpleDateFormat(format);
+String scrapDate = form.getDisposalFormDate();
+// 	if(form.getCurrent()!= null && form.getCurrent().getScrapDate() != null){
+// 		scrapDate = dateFormat.format(form.getCurrent().getScrapDate());
+// 	}
+List<TtInvScrap> scraps = (List<TtInvScrap>)request.getAttribute("scraps");	
+if(scraps == null){
+	scraps = new ArrayList<TtInvScrap>();
+}
+%>
 </head>
 <body class="nav-md">
 	<div class="container body">
@@ -51,27 +68,31 @@
    						 
 
 
-    						<form id=""> 
+    						<form:form id="disposalOfScrapFrom" action="seachdisposalofscrap" method="GET" commandName="disposalOfScrapDTO">
     		
     							<div class="row form-group">
     								<div class="col-md-2 col-sm-12 col-xs-12">
     									<label>
-    										<spring:message code="label.document.disposalscrapmat.disposalno" />:<span class="required">*</span>
+    										<spring:message code="label.document.disposalscrapmat.disposalno" />:<span class="required"></span>
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
     								<div>
-    									<input type="text" class="form-control" id="disposalno" name="disposalno">
+    								
+    									<form:input path="disposalNo" cssClass="form-control"  />
     										
     								</div>
     								</div>
     								<div class="col-md-2  col-sm-12 col-xs-12">
     									<label>
-    									<spring:message code="label.document.disposalscrapmat.storename" />:<span class="required">*</span>
+    									<spring:message code="label.document.disposalscrapmat.storename" />:<span class="required"></span>
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
-    									<input type="text" class="form-control" id="storename" name="storename">
+    									 <form:select id="stores" path="storeId" name="storeId" cssClass="form-control" > 
+											      <form:option value="" label="--Please Select"/>
+											      <form:options items="${stores}" itemValue="storeId" itemLabel="storeName"/>
+											 </form:select>
     										
     								</div>
     							</div>
@@ -84,71 +105,75 @@
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12">
-    								<div>
-    								
-    								<div class='input-group date' id='fromdisposalddate'>
-													<input type="text" class="form-control" value="" placeholder="dd/MM/yyyy" id="disposalfromdate" name="disposalfromdate" />
-													 <span class="input-group-addon"> 
-													 <span class="glyphicon glyphicon-calendar">
-													 </span>
-													</span>
-												</div>
-    								
-    										
+	    								<div>
+	    								
+		    							
+												<input type="date" name="fromdisposalddate" id="fromdisposalddate" class="form-control" value="<%= scrapDate %>" />			
+											
+	    								
+	    										
+	    								</div>
     								</div>
-    								</div>
-    								<div class="col-md-2  col-sm-12 col-xs-12">
-    									<label>
-    									<spring:message code="label.document.disposalscrapmat.disposaltodate" />:<span class="required">*</span>
-    									</label>
-    								</div>
-    								<div class="col-md-4 col-sm-12 col-xs-12">
-    								<div class='input-group date' id='todisposaldate'>
-													<input type="text" class="form-control" value="" placeholder="dd/MM/yyyy" id="disposaltodate" name="disposaltodate" />
-													 <span class="input-group-addon"> 
-													 <span class="glyphicon glyphicon-calendar">
-													 </span>
-													</span>
-												</div>
+<!--     								<div class="col-md-2  col-sm-12 col-xs-12"> -->
+<!--     									<label> -->
+<%--     									<spring:message code="label.document.disposalscrapmat.disposaltodate" />:<span class="required">*</span> --%>
+<!--     									</label> -->
+<!--     								</div> -->
+<!--     								<div class="col-md-4 col-sm-12 col-xs-12"> -->
+<!--     								<div class='input-group date' id='todisposaldate'> -->
+<!-- 													<input type="text" class="form-control" value="" placeholder="dd/MM/yyyy" id="disposaltodate" name="disposaltodate" /> -->
+<!-- 													 <span class="input-group-addon">  -->
+<!-- 													 <span class="glyphicon glyphicon-calendar"> -->
+<!-- 													 </span> -->
+<!-- 													</span> -->
+<!-- 												</div> -->
     									
-    								</div>
-    							</div>
-    							
-    							
-    							<div class="row form-group">
-    								<div class="col-md-2 col-sm-12 col-xs-12">
+<!--     								</div> -->
+									<div class="col-md-2 col-sm-12 col-xs-12">
     									<label>
     										<spring:message code="label.document.scarpwrite.status" />:
     									</label>
     								</div>
     								<div class="col-md-4 col-sm-12 col-xs-12 ">
 	    								<div>
-	    									<input type="checkbox">
+	    									
+	    									<form:checkbox path="status" name="status" />
 	    								</div>
     								</div>
-    								
-    							</div> 
+    							</div>
     							
-    							<%-- <div class="row form-group">
-    								<div class="col-md-2 col-sm-12 col-xs-12">
-    									<label>
-    										<spring:message code="label.document.actmaster.status" />:
-    									</label>
-    								</div>
-    								<div class="col-md-4 col-sm-12 col-xs-12">
-    									<input type="checkbox" >
-    								</div>
-    							</div> --%>
+    							
+    							
+    							
     							
 									
-    							<div class="actionbar">
-    										<button type="button" class="btn"><spring:message code="label.btn.search" /></button>
+    									<div class="actionbar">
+    										<button type="submit" class="btn"><spring:message code="label.btn.search" /></button>
     										<button type="reset" class="btn"><spring:message code="label.btn.reset" /></button>
     										
 										</div>
-    								
-										</form> 
+										<jsp:include page="../../common/footer.jsp" />
+											<jsp:include page="../../common/jsFooter.jsp" />
+											
+												
+										<c:if test="${msgtype != null}">
+												 <script>
+											 var notification = '<spring:message code="label.common.notification" />';
+											 $(function(){
+												 new PNotify({
+											         title: notification,
+											         text: '${message}',
+											         type: '${msgtype}',
+											         styling: 'bootstrap3',
+											         hide: true
+											     });
+											 }); 	 
+										      </script>
+										</c:if>
+									</form:form>
+										
 									</div>
+									
 							</div>
 							
 							<div class="x_panel ">
@@ -173,7 +198,7 @@
 																<th><spring:message code="label.document.disposalscrapmat.disposalno" /></th>
 																<th><spring:message code="label.document.disposalscrapmat.storename" /></th>
 																<th><spring:message code="label.document.disposalscrapmat.disposalfromdate" /></th>
-																<th><spring:message code="label.document.disposalscrapmat.disposaltodate" /></th>
+																
 																<th><spring:message code="label.document.scarpwrite.status" /></th>
 																<th><spring:message code="label.btn.editview" /></th>
 															</tr>
@@ -181,22 +206,23 @@
 															
 														</thead>
 														<tbody>
-														<tr>
-																<td>1</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td>
-																<a><i class="fa fa-edit"></i></a> 
-																/
-																<a><i class="fa fa-trash" aria-hidden="true"></i></a>
-											  					<%-- 	<button type="button" class="btn btn-xs" ><spring:message code="label.btn.edit" /></button> 
-											  						<button type="button" class="btn btn-xs" >View</button> --%>
-																</td>
-																
-															</tr>
+														<%
+															int count = 1;
+														%>
+														 <c:forEach items="${scraps}" var="scrap" >   
+						                      	<tr>
+						                      		<td><%= count++ %></td>
+						                      		<td><c:out value="${scrap.scrapNo}"></c:out>  </td>
+						                      		<td><c:out value="${scrap.tmInvStore.storeName}"></c:out>  </td>
+						                      		<td><c:out value="${scrap.scrapDate}"></c:out>  </td>
+						                      		<td><c:out value="${scrap.scrapStatus}"></c:out>  </td>
+						                      	
+						                      		<td>
+														<a href="javascript:editScrap(${scrap.scrapId} )"><i class="fa fa-edit"></i></a> /
+														 <a href="javascript:deleteScrap(${scrap.scrapId} )"><i class="fa fa-trash" aria-hidden="true"></i></a>
+													</td>
+						                      	</tr>
+						                      	</c:forEach>   
 														</tbody>
 													</table>
 												</div>
@@ -230,6 +256,16 @@ $('#tojournal').datetimepicker({
     format : 'DD/MM/YYYY'
 });
 
+function editScrap(scrap){
+	 window.location = "editdisposalofscrap?scrapId="+scrap+"&edit=true";
+}
+
+function deleteScrap(scrap){
+	 window.location = "deletedisposalofscrap?scrapId="+scrap+"&edit=true";
+}
+
+
+	 
 </script>
 </body>
 </html>
