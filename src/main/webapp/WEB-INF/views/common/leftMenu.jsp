@@ -125,9 +125,9 @@
                    	  
                    	    <li><a><spring:message code="label.inventory.transactions.title" /><span class="fa fa-chevron-down"></span></a>
                    	  	<ul class="nav child_menu">
-                   	  	  <li><a href="<c:url value="/inventory/transactions/searchdisposalofscrap" />" ><spring:message code="label.inventory.transactions.searchdisposalofscrap.search" /></a></li>
+                   	  	  <li><a href="<c:url value="/inventory/transactions/searchscrapwriteoffprocess" />" ><spring:message code="label.inventory.transactions.searchdisposalofscrap.search" /></a></li>
 	                      <li><a href="<c:url value="/inventory/transactions/searchpurchaseorder" />" ><spring:message code="label.inventory.transactions.searchpurchaseorder.search" /></a></li>
-	                     <li><a href="<c:url value="/inventory/transactions/searchscrapwriteoffprocess" />" ><spring:message code="label.inventory.transactions.searchscrapwriteoffprocess.search" /></a></li>
+	                     <li><a href="<c:url value="/inventory/transactions/viewscrap" />" ><spring:message code="label.inventory.transactions.searchscrapwriteoffprocess.search" /></a></li>
 	                     
 	                     
                    	  	</ul>
