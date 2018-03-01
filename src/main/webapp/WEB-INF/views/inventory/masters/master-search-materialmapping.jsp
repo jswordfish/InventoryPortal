@@ -53,7 +53,8 @@
 								           
 								             <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialmapping.deptname" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												<form:select id="deps" path="department" cssClass="form-control" onchange="myFunc()"> 
+<%-- 												<form:select id="deps" path="department" cssClass="form-control" onchange="myFunc()">  --%>
+											<form:select id="deps" path="department" cssClass="form-control" > 
 											      <form:option value="-" label="--Please Select"/>
 											      <form:options items="${departments}" itemValue="depId" itemLabel="depNameEn"/>
 											 </form:select>
@@ -133,7 +134,7 @@
 						                      		<td><c:out value="${dto.accountCode}"></c:out>  </td>
 						                      		<td><c:out value="${dto.active}"></c:out>  </td>
 						                      		<td>
-														<a href="javascript:editMapping(${dto.materialTypeStoreMapId} )"><i class="fa fa-edit"></i></a> /
+														<a href="javascript:editMapping(${dto.materialTypeStoreMapId}, ${dto.storeId}, ${dto.depId} )"><i class="fa fa-edit"></i></a> /
 														 <a href="javascript:deleteMapping(${dto.materialTypeStoreMapId} )"><i class="fa fa-trash" aria-hidden="true"></i></a>
 													</td>
 						                      	</tr>
@@ -170,8 +171,8 @@
 		   }
 		
 		
-		function editMapping(materialTypeStoreMapId) {
-		      window.location = "editmaterialmapping?materialTypeStoreMapId="+materialTypeStoreMapId+"&edit=true";
+		function editMapping(materialTypeStoreMapId ,storeId, depId) {
+		      window.location = "editmaterialmapping?materialTypeStoreMapId="+materialTypeStoreMapId+"&edit=true&depId="+depId+"&storeId="+storeId;
 		   }
 		
 		function deleteMapping(materialTypeStoreMapId) {
@@ -197,6 +198,21 @@
 		}
 				
 	</script>
+	
+	<c:if test="${msgtype != null}">
+		 <script>
+	 var notification = '<spring:message code="label.common.notification" />';
+	 $(function(){
+		 new PNotify({
+	         title: notification,
+	         text: '${message}',
+	         type: '${msgtype}',
+	         styling: 'bootstrap3',
+	         hide: true
+	     });
+	 }); 	 
+      </script>
+</c:if>
 </form:form>
 </body>
 </html>

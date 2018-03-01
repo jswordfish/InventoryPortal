@@ -52,14 +52,21 @@
 										<div class="form-group">
 											   <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialmapping.deptname" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-											  <form:input path="currentMappingDTO.depName" cssClass="form-control" disabled="true" />
+<%-- 											  <form:input path="currentMappingDTO.depName" cssClass="form-control"  /> --%>
+													<form:select id="departments" path="department" cssClass="form-control" disabled="${(editMaping!= null && editMaping == true) ? true: false}" required="required"> 
+											     
+											      <form:options items="${departments}" itemValue="depId" itemLabel="depNameEn"/>
+											 	</form:select>
 												 
 											  </div>
 											  
 											   <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialmapping.storename" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-											  <form:input path="currentMappingDTO.storeName" cssClass="form-control" disabled="true" />
-												 
+<%-- 											  <form:input path="currentMappingDTO.storeName" cssClass="form-control"  /> --%>
+												 <form:select path="store" cssClass="form-control" disabled="${(editMaping!= null && editMaping == true) ? true: false}" required="required">
+											      <form:option value="-" label="--Please Select"/>
+											      <form:options items="${stores}" itemValue="storeId" itemLabel="storeName"/>
+											 </form:select>
 											  </div>
 										</div>
 									
@@ -67,7 +74,7 @@
 							              <div class="form-group">
 											  <label for="name" class="col-md-2 col-sm-2 col-xs-12"><spring:message code="label.inventory.master.materialmapping.materialtypename" />:</label>
 											  <div class="col-md-4 col-sm-4 col-xs-12">
-												 <form:select id="mTypes" path="currentMappingDTO.materialTypeId" cssClass="form-control" disabled="${(editMaping!= null && editMaping == true) ? true: false}" > 
+												 <form:select id="mTypes" path="currentMappingDTO.materialTypeId" cssClass="form-control" disabled="${(editMaping!= null && editMaping == true) ? true: false}" required="required"> 
 											     
 											      <form:options items="${mTypes}" itemValue="materialTypeId" itemLabel="materialTypeName"/>
 											 	</form:select>
@@ -157,6 +164,21 @@
 		
 		 
 	</script>
+	
+	<c:if test="${msgtype != null}">
+		 <script>
+	 var notification = '<spring:message code="label.common.notification" />';
+	 $(function(){
+		 new PNotify({
+	         title: notification,
+	         text: '${message}',
+	         type: '${msgtype}',
+	         styling: 'bootstrap3',
+	         hide: true
+	     });
+	 }); 	 
+      </script>
+</c:if>
 </form:form>
 </body>
 </html>
